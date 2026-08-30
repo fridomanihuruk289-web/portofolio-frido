@@ -357,6 +357,30 @@ function TableauEmbed({ label }: { label: string }) {
   );
 }
 
+function TableauPreview() {
+  const tableauUrl = 'https://public.tableau.com/shared/DFGNHB7JZ?:showVizHome=no&:toolbar=no';
+
+  return (
+    <div className="tableau-preview">
+      <iframe
+        src={tableauUrl}
+        title="Supply Chain Performance Dashboard preview"
+        loading="lazy"
+      />
+      <a
+        className="tableau-preview-link"
+        href={tableauUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Buka Supply Chain Performance Dashboard di Tableau Public"
+        data-testid="link-tableau-forecast-preview"
+      >
+        <span>Buka di Tableau Public <ArrowUpRight size={14} /></span>
+      </a>
+    </div>
+  );
+}
+
 function Projects() {
   const [openResearch, setOpenResearch] = useState<string | null>('background');
   const toggle = (key: string) => setOpenResearch(openResearch === key ? null : key);
@@ -388,7 +412,7 @@ function Projects() {
               <div className="tag-list">
                 {['ARIMA Time-Series Forecasting (R)', 'Inventory Planning', 'Reorder Point Calculation'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              <a className="project-link secondary-project-link" href="https://public.tableau.com/shared/DFGNHB7JZ" target="_blank" rel="noreferrer" data-testid="link-tableau-forecast">Buka Dashboard di Tableau Public <ArrowUpRight size={14} /></a>
+              <TableauPreview />
             </div>
             <div className="project-visual supply-visual">
               <figure className="forecast-image-card">
