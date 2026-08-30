@@ -1,0 +1,187 @@
+# Prompt Template — Website Portofolio Profesional
+**Untuk: Frido Evindey Manihuruk | Target: Champion Trainee – Supply Chain Management**
+
+---
+
+## 📋 Cara Pakai
+1. Buka Replit → buat Repl baru → pilih **Agent** (bukan Workspace kosong).
+2. Copy **seluruh isi kotak "PROMPT UTAMA"** di bawah, lalu paste ke chat Replit Agent.
+3. Setelah situs jadi, ganti bagian `[GANTI: ...]` dengan foto, link CV, dan link medsos asli kamu.
+4. Kalau nanti melamar posisi lain, cukup edit bagian **KONFIGURASI POSISI** di paling atas prompt — sisanya otomatis tetap relevan karena strukturnya generik.
+
+---
+
+## 🎨 PROMPT UTAMA (copy dari sini ke bawah)
+
+```
+Buatkan saya sebuah website portofolio profesional satu halaman (single-page,
+scrollable) dengan nuansa CORPORATE, CLEAN, dan MINIMALIS. Gunakan HTML5,
+Tailwind CSS (via CDN), dan vanilla JavaScript untuk interaktivitas ringan
+(smooth scroll, active nav highlight, scroll-reveal animation halus).
+Referensi gaya: layout hero split (foto di satu sisi, teks besar bold di sisi
+lain), navbar sticky dengan tombol CTA berbentuk pill, ikon sosial media
+berbentuk lingkaran kecil — mirip template portofolio desainer modern, tapi
+lebih formal dan korporat karena ini untuk melamar kerja, bukan portofolio
+kreatif.
+
+=== KONFIGURASI POSISI (edit bagian ini setiap melamar posisi berbeda) ===
+- Nama: Frido Evindey Manihuruk
+- Posisi yang dilamar: Champion Trainee – Supply Chain Management
+- Tagline hero: "Calon profesional yang siap membawa kemampuan analisis data
+  dan riset ekonomi ke dalam pengelolaan rantai pasok yang lebih efisien,
+  akurat, dan berbasis data."
+
+=== DESIGN SYSTEM ===
+Palet warna (pakai CSS variables agar mudah diubah):
+- Dominan (60-70% area): #0F172A (background gelap untuk hero & footer) dan
+  #F8FAFC (background terang untuk section konten) — selang-seling antar
+  section agar ada ritme visual (dark - light - dark - light).
+- Teks: #F8FAFC di atas background gelap, #0F172A di atas background terang.
+- Aksen (5-10%, PAKAI TERBATAS): #6C2648 — hanya untuk tombol CTA, link aktif,
+  garis bawah judul kecil, border saat hover card, dan indikator nav aktif.
+  Jangan gunakan aksen ini untuk area luas.
+
+Tipografi:
+- Heading: font sans-serif bold modern (misal "Space Grotesk" atau
+  "Plus Jakarta Sans" dari Google Fonts), ukuran besar untuk nama di hero.
+- Body: "Inter" atau sejenis, ukuran nyaman dibaca (16-18px).
+- Boleh tambahkan aksen italic tipis pada satu kata di headline hero untuk
+  kesan elegan, tapi jangan berlebihan — tetap harus terbaca formal.
+
+Ikon: gunakan Lucide Icons atau Feather Icons via CDN untuk kontak & sosial
+media (email, telepon/WhatsApp, LinkedIn).
+
+=== STRUKTUR HALAMAN (urutan section, semua dengan id untuk smooth scroll) ===
+
+1. NAVBAR (sticky, berubah style/shadow saat discroll)
+   - Logo/nama singkat di kiri
+   - Menu: Beranda, Tentang, Pengalaman, Proyek, Sertifikasi, Kontak
+   - Tombol CTA di kanan: "Unduh CV" (warna aksen, link ke https://drive.google.com/file/d/1aGQyDurTLheiBfWFR4-zp1C2e-Dp-mUD/view?usp=sharing)
+
+2. HERO / COVER
+   - Foto profesional (placeholder area, ratio potret) — [GANTI: upload foto]
+   - Nama besar: "Frido Evindey Manihuruk"
+   - Badge/pill kecil di bawah nama menampilkan posisi yang dilamar:
+     "Champion Trainee – Supply Chain Management" (border warna aksen)
+   - Tagline hero (lihat KONFIGURASI POSISI di atas)
+   - Dua tombol CTA: "Unduh CV" (solid, warna aksen) dan "Hubungi Saya"
+     (outline, scroll ke section kontak)
+   - Baris ikon kontak & medsos: Email (fridomanihuruk289@gmail.com),
+     WhatsApp (wa.me/6283163258425), LinkedIn
+     (linkedin.com/in/fridoevindeym298/)
+
+3. TENTANG SAYA
+   - Ringkasan profil singkat (2-3 kalimat), gunakan teks berikut:
+     "Sarjana Ilmu Ekonomi Universitas Negeri Medan (IPK 3,71/4,00) dengan
+     pengalaman dalam analisis data ekonomi regional, riset kebijakan
+     perdagangan dan komoditas, serta koordinasi administratif di lingkungan
+     pemerintahan. Terbiasa bekerja dengan data kuantitatif dan tertarik
+     mengembangkan karier di bidang supply chain, perdagangan, dan logistik."
+   - 3-4 kartu statistik kecil (angka besar + label): "3.71 IPK",
+     "20+ Publikasi Ilmiah", "5+ Pengalaman Organisasi", "2026 Lulus"
+   - Info pendidikan:
+     * S1 Ilmu Ekonomi — Universitas Negeri Medan (Agustus 2022 – April 2026),
+       IPK 3,71/4,00
+     * SMA Swasta Methodist-3 Medan — IPS (Juli 2018 – Mei 2021), rata-rata 91
+
+4. PENGALAMAN (gunakan tab atau dua kolom: "Pengalaman Kerja" & "Organisasi",
+   ditampilkan sebagai timeline vertikal dengan card)
+
+   Pengalaman Kerja:
+   - BAPPERIDA Sumatera Utara, Bidang PSDA (Januari – Februari 2025):
+     Menganalisis indikator ekonomi regional, menyunting laporan KEK Sei
+     Mangkei, terlibat riset dampak sektor jasa keuangan terhadap komoditas
+     unggulan Sumatera Utara, serta verifikasi laporan kinerja ASN via sistem
+     e-Kinerja.
+   - Tim Akreditasi Prodi Ilmu Ekonomi UNIMED (September 2025 – Januari
+     2026): Merekapitulasi dan memverifikasi 122 riwayat penelitian dan
+     pengabdian dosen melalui sistem LAMEMBA, berkontribusi pada pencapaian
+     akreditasi "Unggul" selama 5 tahun.
+
+   Pengalaman Organisasi (Setiap organisasi buat tempat upload foto nya):
+   - GenBI Sumatera Utara, Anggota Divisi Pengabdian Masyarakat (Agustus 2025
+     – Juni 2026): Sekretaris panitia program edukasi keuangan CBP Rupiah,
+     koordinator konsumsi kegiatan donor darah bersama PMI Kota Medan.
+   - Himpunan Mahasiswa Ilmu Ekonomi, Koordinator Divisi Agama Kristen
+     (Februari – Desember 2024): Mengoordinasikan 3 anggota divisi,
+     PIC kegiatan Natal (500+ peserta, 14 dosen), kegiatan sosial panti
+     asuhan (18 anak).
+   - PSM Magnificum Et Bonum, Asisten Pelatih (September 2022 – Juni 2026):
+     Membina 40-50 anggota paduan suara, conductor untuk 46 penyanyi pada
+     Konser ke-7.
+
+5. PROYEK & RISET (FEATURED PROJECTS)
+   - Tampilkan sebagai 3 kartu/grid besar yang membentang penuh atau dua kolom pada desktop.
+   - Gunakan desain yang membedakan proyek analisis data (interaktif) dengan riset ekonomi.
+
+   Proyek 1: Retail Sales Performance Dashboard
+   - Konteks: Menganalisis jutaan baris data transaksi ritel untuk mengidentifikasi tren profitabilitas, performa kategori, dan efisiensi wilayah.
+   - Visual: Sediakan 1 tag <iframe> kosong lebar dengan komentar <!-- COPY PASTE TABLEAU EMBED CODE DI SINI --> (pastikan responsif aspect ratio 16:9).
+   - Skills (Bulleted tag/pill): Data Cleaning, Descriptive Analytics, Data Visualization, Cross-Selling Strategy.
+   - Tombol/Link: "[GANTI: Link ke Tableau Public]"
+
+   Proyek 2: Supply Chain & Demand Forecasting
+   - Konteks: Memodelkan optimasi persediaan dan memprediksi permintaan masa depan untuk menekan Stockout Rate hingga di bawah batas kritis. Menghitung parameter Reorder Point (ROP) dan Safety Stock.
+   - Visual: Bagi dua kolom. Kolom kiri: tag <img> dengan komentar <!-- MASUKKAN LINK GAMBAR EXCEL ROP DI SINI -->. Kolom kanan: tag <iframe> dengan komentar <!-- COPY PASTE TABLEAU EMBED CODE DI SINI -->.
+   - Skills (Bulleted tag/pill): ARIMA Time-Series Forecasting (R), Inventory Planning, Reorder Point Calculation.
+
+   Proyek 3: Riset Makroekonomi — Global Shocks & Sovereign Borrowing Costs
+   - Sub-judul: A Structural VAR Analysis on Exchange Rate Pass-Through
+   - Desain Khusus: Gunakan komponen Akordion (Accordion) atau tab untuk menyembunyikan teks panjang agar layout tetap bersih.
+   - Visual: Sediakan 1 tag <img> dengan komentar <!-- MASUKKAN GAMBAR GRAFIK IRF/FEVD DI SINI -->.
+   - Latar Belakang: Menganalisis transmisi guncangan GEPU, BDI, dan WTI terhadap sektor riil, inflasi, nilai tukar, dan imbal hasil obligasi di Indonesia (small open economy). Menyoroti hipotesis reversed causality dari nilai tukar menuju imbal hasil obligasi.
+   - Metode: Structural Vector Autoregression (SVAR) dengan Monthly time-series data (Januari 2010–November 2025).
+   - Temuan Utama (Bulleted list):
+     * Guncangan WTI menekan inflasi namun memberi respons positif pada IPI.
+     * Depresiasi memicu kenaikan YIELD kontemporer, mendukung hipotesis currency risk premium.
+     * Pada horizon 32 bulan, inflasi adalah penyumbang eksternal terbesar variasi YIELD (34,06%).
+   - Implikasi: Menegaskan pentingnya intervensi valas dan stabilisasi inflasi jangka panjang untuk mengendalikan biaya pembiayaan utang pemerintah.
+
+6. KEAHLIAN (grid ikon/tag, dikelompokkan 3 kategori)
+   - Analisis & Bisnis: Analisis Ekonomi & Keuangan, Analisis Data, Analytical
+     Thinking & Problem Solving, Banking & Financial Systems
+   - Kepemimpinan & Interpersonal: Leadership, Communication, Teamwork,
+     Stakeholder Coordination
+   - Tools Teknis: Microsoft Excel, EViews, RStudio, Tableau, SmartPLS,
+     Canva, Python, SQL, Google Looker Studio
+
+7. SERTIFIKASI & PELATIHAN (list/grid card dengan ikon sertifikat)
+   - Bootcamp Data Analyst (Excel, SQL, Python, Google Looker Studio) — PT.
+     Ebiz Karisma, Juli 2026
+   - TOEFL Prediction — Skor 500 — Asterdam Course
+   - Uji Kemahiran Berbahasa Indonesia — Skor 565 — Badan Bahasa
+   - E-Learning Pengenalan Kebijakan Publik — Kementerian Keuangan, 2026
+   - E-Learning Pengantar Manajemen Keuangan Negara — Kementerian Keuangan
+   - Dasar Microsoft Excel untuk Administrasi Perkantoran — PT. Yureka
+     Edukasi Cipta
+   - LIKE IT — Bank Indonesia, OJK, Kemenkeu, dan LPS, Oktober 2025
+
+8. PENUTUP / KONTAK (background gelap #0F172A, seperti hero)
+   - Judul ajakan singkat, misal: "Tertarik berdiskusi lebih lanjut? Mari
+     terhubung."
+   - Tombol CTA besar warna aksen: "Kirim Email" (mailto:) dan "Hubungi via
+     WhatsApp"
+   - Baris ikon sosial media (ulang dari hero)
+   - Footer kecil: nama, tahun, "Dibuat dengan ♦" atau sejenisnya
+
+=== KEBUTUHAN FUNGSIONAL ===
+- Fully responsive: mobile, tablet, desktop (uji breakpoint utama).
+- Smooth scroll saat klik menu navbar, dengan highlight menu aktif sesuai
+  section yang sedang dilihat.
+- Animasi scroll-reveal halus (fade + slide up) saat section masuk viewport,
+  gunakan Intersection Observer, JANGAN berlebihan/mengganggu.
+- Semua area placeholder foto/link ditandai jelas dengan komentar
+  "[GANTI: ...]" di kode agar mudah saya temukan dan ubah.
+- Kontras warna harus tetap nyaman dibaca (ikuti aturan proporsi warna di
+  atas, aksen #6C2648 jangan dipakai untuk teks panjang).
+- Struktur kode rapi, terkomentar per section, mudah untuk saya edit sendiri
+  nantinya (terutama bagian KONFIGURASI POSISI, karena portofolio ini akan
+  saya sesuaikan lagi setiap melamar posisi berbeda).
+```
+
+---
+
+## 💡 Catatan Tambahan
+- Bagian **KONFIGURASI POSISI** sengaja saya taruh paling atas prompt supaya nanti kamu tinggal ganti nama posisi + tagline tanpa perlu menulis ulang prompt dari nol.
+- Jangan lupa siapkan sebelum eksekusi: (1) foto profesional format potret, (2) link CV yang bisa diakses publik (Google Drive/Dropbox dengan permission "anyone with link"), (3) link publikasi jurnal jika ada versi online-nya.
+- Kalau hasil dari Replit terasa terlalu ramai atau warnanya kurang pas, kamu bisa follow-up dengan instruksi singkat seperti: "kurangi penggunaan warna aksen di section proyek" atau "perbesar jarak antar section" — Replit Agent bisa iterasi dari hasil sebelumnya.
