@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   ArrowDown,
@@ -22,6 +22,8 @@ import {
   X,
 } from 'lucide-react';
 import portraitImage from '@assets/Foto_Kasual_4x5_1788089653019.png';
+import supplyChainDashboardImage from '@assets/image_1788099334600.png';
+import retailDashboardImage from '@assets/image_1788099566300.png';
 import supplyChainImage from '@assets/image_868571.png_1788097299939.png';
 import arimaForecastImage from '@assets/Rplot.png_1788097319770.png';
 import { ErrorBoundary } from '@/components/error-boundary';
@@ -305,79 +307,29 @@ function Experience() {
   );
 }
 
-function TableauEmbed({ label }: { label: string }) {
-  const tableauRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = tableauRef.current;
-    if (!container) return;
-
-    const script = document.createElement('script');
-    script.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-    script.async = true;
-    container.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
-  }, []);
-
+function TableauImagePreview({
+  image,
+  alt,
+  href,
+  testId,
+}: {
+  image: string;
+  alt: string;
+  href: string;
+  testId: string;
+}) {
   return (
-    <div ref={tableauRef} className="embed-frame w-full overflow-hidden">
-      {/* COPY PASTE TABLEAU EMBED CODE DI SINI */}
-      <div className="tableauPlaceholder" id="viz1788090535935" style={{ position: 'relative', width: '100%' }}>
-        <noscript>
-          <a href="https://public.tableau.com/views/SalesPerformanceDashboard_17878396204710/Dashboard1?:showVizHome=no">
-            <img
-              alt="Sales Performance Dashboard 2025 Toko Peralatan Dapur ABC"
-              src="https://public.tableau.com/static/images/Sa/SalesPerformanceDashboard_17878396204710/Dashboard1/1_rss.png"
-              style={{ border: 'none', width: '100%' }}
-            />
-          </a>
-        </noscript>
-        <object className="tableauViz" style={{ display: 'none' }}>
-          <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
-          <param name="embed_code_version" value="3" />
-          <param name="site_root" value="" />
-          <param name="name" value="SalesPerformanceDashboard_17878396204710/Dashboard1" />
-          <param name="tabs" value="no" />
-          <param name="toolbar" value="yes" />
-          <param name="static_image" value="https://public.tableau.com/static/images/Sa/SalesPerformanceDashboard_17878396204710/Dashboard1/1.png" />
-          <param name="animate_transition" value="yes" />
-          <param name="display_static_image" value="yes" />
-          <param name="display_spinner" value="yes" />
-          <param name="display_overlay" value="yes" />
-          <param name="display_count" value="yes" />
-          <param name="language" value="en-US" />
-          <param name="filter" value="publish=yes" />
-        </object>
-      </div>
-      <div className="embed-note"><ExternalLink size={15} /><span>{label} • live Tableau dashboard</span></div>
-    </div>
-  );
-}
-
-function TableauPreview() {
-  const tableauUrl = 'https://public.tableau.com/shared/DFGNHB7JZ?:showVizHome=no&:toolbar=no';
-
-  return (
-    <div className="tableau-preview">
-      <iframe
-        src={tableauUrl}
-        title="Supply Chain Performance Dashboard preview"
-        loading="lazy"
-      />
-      <a
-        className="tableau-preview-link"
-        href={tableauUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Buka Supply Chain Performance Dashboard di Tableau Public"
-        data-testid="link-tableau-forecast-preview"
-      >
-        <span>Buka di Tableau Public <ArrowUpRight size={14} /></span>
-      </a>
-    </div>
+    <a
+      className="tableau-image-preview"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Buka ${alt} di Tableau Public`}
+      data-testid={testId}
+    >
+      <img src={image} alt={alt} />
+      <span className="tableau-image-preview-label">Buka di Tableau Public <ArrowUpRight size={14} /></span>
+    </a>
   );
 }
 
@@ -399,8 +351,12 @@ function Projects() {
               <div className="tag-list">
                 {['Data Cleaning', 'Descriptive Analytics', 'Data Visualization', 'Cross-Selling Strategy'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              <TableauEmbed label="Retail Sales Performance Dashboard" />
-              <a className="project-link" href="https://public.tableau.com/views/SalesPerformanceDashboard_17878396204710/Dashboard1?:showVizHome=no" target="_blank" rel="noreferrer" data-testid="link-tableau-retail">Buka di Tableau Public <ArrowUpRight size={14} /></a>
+              <TableauImagePreview
+                image={retailDashboardImage}
+                alt="Sales Performance Dashboard 2025 Toko Peralatan Dapur ABC"
+                href="https://public.tableau.com/views/SalesPerformanceDashboard_17878396204710/Dashboard1?:showVizHome=no"
+                testId="link-tableau-retail-preview"
+              />
             </div>
           </article>
 
@@ -412,7 +368,12 @@ function Projects() {
               <div className="tag-list">
                 {['ARIMA Time-Series Forecasting (R)', 'Inventory Planning', 'Reorder Point Calculation'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              <TableauPreview />
+              <TableauImagePreview
+                image={supplyChainDashboardImage}
+                alt="Supply Chain Performance Dashboard"
+                href="https://public.tableau.com/shared/DFGNHB7JZ"
+                testId="link-tableau-forecast-preview"
+              />
             </div>
             <div className="project-visual supply-visual">
               <figure className="forecast-image-card">
