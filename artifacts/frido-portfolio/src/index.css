@@ -502,6 +502,8 @@ body { overflow-x: hidden; }
 .projects-section { background: #fff; }
 .project-stack { display: grid; gap: 24px; }
 .project-card { display: grid; grid-template-columns: 35% 1fr; min-height: 280px; border: 1px solid var(--line); background: #f9fafb; transition: border-color .25s ease, transform .25s ease; }
+.retail-card { display: block; }
+.forecast-card { grid-template-columns: 1fr 1fr; }
 .project-card:hover { border-color: #a26a82; transform: translateY(-3px); }
 .project-card.dark-card { background: var(--navy); border-color: var(--navy); color: #f5f7f9; }
 .project-visual { position: relative; min-height: 250px; padding: 24px; overflow: hidden; }
@@ -524,12 +526,17 @@ body { overflow-x: hidden; }
 .dark-card .tag { border-color: #435169; color: #c4cfdb; }
 .project-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; color: var(--burgundy); font-size: .73rem; font-weight: 700; text-decoration: none; }
 .dark-card .project-link { color: #e3bdcf; }
+.secondary-project-link { width: fit-content; padding: 11px 16px; border: 1px solid currentColor; border-radius: 999px; transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.secondary-project-link:hover { color: #fff; background: var(--burgundy); border-color: var(--burgundy); transform: translateY(-2px); }
 .embed-frame { position: relative; width: 100%; min-height: 795px; margin-top: 22px; border: 1px dashed #8190a0; background: rgba(255,255,255,.05); overflow: hidden; }
 .embed-frame .tableauPlaceholder { width: 100% !important; min-height: 795px; }
 .embed-frame .tableauPlaceholder iframe { display: block; width: 100% !important; min-height: 795px; border: 0; opacity: .98; }
 .embed-frame .tableauViz { width: 100% !important; }
 .embed-note { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 14px; pointer-events: none; background: rgba(15,23,42,.84); color: #e6edf4; text-align: center; font-size: .69rem; }
-.supply-visual { display: grid; grid-template-columns: 1fr 1.35fr; gap: 11px; background: #f0f3f5; }
+.supply-visual { display: flex; flex-direction: column; gap: 1.5rem; background: #f0f3f5; padding: 32px 36px; }
+.forecast-image-card { margin: 0; }
+.forecast-image { display: block; background: #fff; border-color: #cbd5e1; }
+.forecast-image-card figcaption { margin-top: 9px; color: #64748b; font-size: .69rem; line-height: 1.45; }
 .excel-sheet, .mini-chart { position: relative; border: 1px solid #c7d1da; background: #fff; overflow: hidden; }
 .excel-sheet .placeholder-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .68; }
 .excel-sheet::before { content: ""; position: absolute; inset: 20px 10px 10px; background: repeating-linear-gradient(0deg, transparent 0 15px, #dce4e9 16px), repeating-linear-gradient(90deg, transparent 0 30px, #dce4e9 31px); }

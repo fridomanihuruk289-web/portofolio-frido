@@ -4,7 +4,6 @@ import {
   ArrowDown,
   ArrowUpRight,
   Award,
-  BarChart3,
   BookOpen,
   ChevronDown,
   Code2,
@@ -23,6 +22,8 @@ import {
   X,
 } from 'lucide-react';
 import portraitImage from '@assets/Foto_Kasual_4x5_1788089653019.png';
+import supplyChainImage from '@assets/image_868571.png_1788097299939.png';
+import arimaForecastImage from '@assets/Rplot.png_1788097319770.png';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -366,11 +367,7 @@ function Projects() {
           Tiga studi yang menunjukkan rentang berpikir: mengubah data mentah menjadi visibilitas, membuat keputusan persediaan lebih terukur, lalu menguji cerita ekonomi dengan metode yang ketat.
         </SectionHeading>
         <div className="project-stack">
-          <article className="project-card reveal">
-            <div className="project-visual dashboard-visual">
-              <span className="visual-label"><BarChart3 size={13} /> Retail intelligence</span>
-              <div className="placeholder-badge">[GANTI: Tableau preview]</div>
-            </div>
+          <article className="project-card retail-card reveal">
             <div className="project-content">
               <div className="project-number mono-label">Project 01 / Interactive analysis</div>
               <h3>Retail Sales Performance Dashboard</h3>
@@ -383,23 +380,7 @@ function Projects() {
             </div>
           </article>
 
-          <article className="project-card dark-card reveal delay-1">
-            <div className="project-visual supply-visual">
-              {/* [GANTI: Masukkan link gambar Excel ROP di sini] */}
-              <div className="excel-sheet">
-                <img
-                  className="placeholder-image"
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'%3E%3Crect width='240' height='180' fill='%23f9fbfc'/%3E%3Cpath d='M0 38h240M0 70h240M0 102h240M0 134h240M48 0v180M96 0v180M144 0v180M192 0v180' stroke='%23d9e2e8'/%3E%3Cpath d='M9 23h26' stroke='%236c2648' stroke-width='4'/%3E%3C/svg%3E"
-                  alt="[GANTI: Gambar Excel ROP]"
-                />
-                <span className="placeholder-badge">[GANTI: Excel ROP]</span>
-              </div>
-              {/* [GANTI: Masukkan preview Tableau di sini] */}
-              <div className="mini-chart">
-                <iframe title="Supply chain Tableau preview placeholder" srcDoc="<html><body style='margin:0;background:transparent;color:#c59aaf;display:grid;place-items:center;font:10px monospace;letter-spacing:1px'>[GANTI: TABLEAU]</body></html>" />
-                <span className="placeholder-badge">FORECAST</span>
-              </div>
-            </div>
+          <article className="project-card forecast-card dark-card reveal delay-1">
             <div className="project-content">
               <div className="project-number mono-label">Project 02 / Planning model</div>
               <h3>Supply Chain & Demand Forecasting</h3>
@@ -407,7 +388,17 @@ function Projects() {
               <div className="tag-list">
                 {['ARIMA Time-Series Forecasting (R)', 'Inventory Planning', 'Reorder Point Calculation'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              <a className="project-link" href="#kontak" data-testid="link-tableau-forecast">[GANTI: Link ke Tableau / file Excel] <ArrowUpRight size={14} /></a>
+              <a className="project-link secondary-project-link" href="https://public.tableau.com/shared/DFGNHB7JZ" target="_blank" rel="noreferrer" data-testid="link-tableau-forecast">Buka Dashboard di Tableau Public <ArrowUpRight size={14} /></a>
+            </div>
+            <div className="project-visual supply-visual">
+              <figure className="forecast-image-card">
+                <img className="w-full h-auto object-contain rounded-lg border shadow-sm forecast-image" src={supplyChainImage} alt="Excel ROP Calculation" />
+                <figcaption>Gambar 1: Perhitungan Parameter ROP &amp; Safety Stock</figcaption>
+              </figure>
+              <figure className="forecast-image-card">
+                <img className="w-full h-auto object-contain rounded-lg border shadow-sm forecast-image" src={arimaForecastImage} alt="ARIMA Demand Forecast" />
+                <figcaption>Gambar 2: Prediksi Permintaan menggunakan model ARIMA di R</figcaption>
+              </figure>
             </div>
           </article>
 
