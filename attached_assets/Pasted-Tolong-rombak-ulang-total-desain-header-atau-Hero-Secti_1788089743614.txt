@@ -1,0 +1,38 @@
+Tolong rombak ulang total desain <header> atau Hero Section pada website ini. Saya ingin mengubahnya dari mode gelap menjadi desain light mode modern yang terinspirasi dari gaya UI Dribbble, dengan struktur asimetris yang elegan.
+
+=== ATURAN FONT BARU (GANTI SEMUA FONT SEBELUMNYA) ===
+Ganti font lama dengan kombinasi Google Fonts berikut:
+- Heading (Judul besar): Gunakan font "Outfit" atau "Syne" (berikan bobot bold/extrabold agar terlihat tegas dan modern).
+- Body/Teks Paragraf: Gunakan font "Plus Jakarta Sans" atau "Manrope" (bersih, bulat, dan mudah dibaca).
+
+=== ATURAN WARNA (Terapkan Secara Ketat) ===
+- Dominan (60%): Gunakan #F8FAFC sebagai warna latar belakang utama Hero section, dengan aksen gradient halus atau pattern grid tipis berwarna #FFFFFF di belakangnya.
+- Teks & Struktur (30%): Gunakan #0F172A (Slate Navy) untuk teks "I'M FRIDO", teks navigasi, paragraf deskripsi, dan teks "CHAMPION TRAINEE".
+- Aksen (10%): Gunakan #6c2648 HANYA untuk tombol CTA utama ("Unduh CV"), titik (dot) dekoratif, atau efek hover pada tautan.
+
+=== STRUKTUR LAYOUT HERO (Berdasarkan Referensi Baru) ===
+Buat layout Hero dengan gaya berikut (gunakan Flexbox/CSS Grid dan absolute positioning jika perlu):
+
+1. Background Effect:
+Di belakang semua elemen, letakkan teks watermark berukuran sangat besar, semi-transparan (opacity 5-10%), dan memotong kanvas dengan tulisan "ANALYST" atau "SUPPLY CHAIN" agar tidak polos.
+
+2. Elemen Tengah (Center/Slightly Right):
+Sediakan tag <img> untuk foto saya. Buat penempatannya bottom-aligned (rata bawah) menempel pada batas bawah hero section. (Catatan: beri komentar <!-- GANTI DENGAN FOTO PNG TANPA BACKGROUND -->). Ukurannya harus dominan.
+
+3. Sisi Kiri (Teks & Intro):
+- Di bagian atas kiri, tulis teks "I'M" (italic, ukuran besar, warna #0F172A).
+- Tepat di bawahnya, tulis "FRIDO" (huruf kapital, font Outfit/Syne, sangat besar, extrabold, warna #0F172A).
+- Di bawah nama, letakkan tombol CTA "Unduh CV" (warna background #6c2648, teks putih, bentuk rounded-full/pill).
+- Di pojok kiri bawah hero, letakkan paragraf kecil: "Calon profesional yang siap membawa kemampuan analisis data dan riset ekonomi ke dalam pengelolaan rantai pasok yang efisien dan berbasis data." (Lebar maksimal max-w-sm).
+
+4. Sisi Kanan (Kontak & Gelar):
+- Di area atas/tengah kanan, buat teks kecil "Follow Me" dengan 3 ikon media sosial berbentuk lingkaran outline (Email, WhatsApp, LinkedIn). Susun secara horizontal atau vertikal kecil.
+- Di pojok kanan bawah, buat teks tipografi tebal bersusun: 
+  "DATA ANALYST &"
+  "SUPPLY CHAIN"
+  (Rata kanan, uppercase, warna #0F172A).
+
+5. Navbar:
+Ubah navbar menjadi terang. Teks menu berwarna #0F172A, letakkan di tengah (center). Hapus background gelap pada navbar, buat transparan atau putih solid jika di-scroll (glassmorphism). Tombol CTA navbar gunakan outline #0F172A, saat di-hover menjadi background #6c2648.
+
+Tolong tulis ulang kode HTML dan Tailwind CSS untuk bagian Hero ini agar sesuai dengan instruksi di atas!

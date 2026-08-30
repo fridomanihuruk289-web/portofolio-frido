@@ -11,6 +11,7 @@ import {
   Download,
   ExternalLink,
   GraduationCap,
+  Linkedin,
   LineChart,
   Mail,
   MapPin,
@@ -21,6 +22,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
+import portraitImage from '@assets/Foto_Kasual_4x5_1788089653019.png';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -150,11 +152,12 @@ function Hero() {
   return (
     <section id="beranda" className="hero" aria-label="Beranda">
       <div className="hero-grid">
-        <div className="reveal">
+        <div className="hero-copy-column reveal">
           <div className="hero-kicker mono-label">Open to opportunity / Medan, Indonesia</div>
-          <h1 className="hero-title display-font">Frido Evindey <em>Manihuruk</em></h1>
-          <div className="hero-role">{position.role}</div>
-          <p className="hero-copy">{position.tagline}</p>
+          <h1 className="hero-title display-font">
+            <em>I'M</em>
+            <strong>FRIDO</strong>
+          </h1>
           <div className="hero-actions">
             <a className="button-primary" href={position.cv} target="_blank" rel="noreferrer" data-testid="hero-download-cv">
               Unduh CV <Download size={15} />
@@ -163,22 +166,24 @@ function Hero() {
               Hubungi Saya <ArrowUpRight size={15} />
             </a>
           </div>
-          <div className="hero-contact-row">
-            <a href={`mailto:${position.email}`} data-testid="hero-email"><Mail size={14} /> {position.email}</a>
-            <a href={position.whatsapp} target="_blank" rel="noreferrer" data-testid="hero-whatsapp"><MessageCircle size={14} /> WhatsApp</a>
-            <a href={position.linkedin} target="_blank" rel="noreferrer" data-testid="hero-linkedin"><Network size={14} /> LinkedIn</a>
-          </div>
+          <div className="hero-role">CHAMPION TRAINEE</div>
+          <p className="hero-copy">{position.tagline}</p>
         </div>
         <div className="hero-portrait reveal delay-2">
-          <div className="portrait-frame">
-            {/* [GANTI: upload foto profesional potret Frido di area ini] */}
-            <div className="portrait-art" aria-hidden="true" />
-            <span className="hero-number">01 / 06</span>
-            <div className="portrait-placeholder" data-testid="placeholder-portrait">
-              <strong>[GANTI: Foto profesional]</strong><br />
-              Placeholder visual — ganti dengan foto portrait resmi.
+          <div className="follow-me">
+            <span className="follow-me-label">Follow Me</span>
+            <div className="social-links">
+              <a href={`mailto:${position.email}`} aria-label="Email Frido" data-testid="hero-email"><Mail size={15} /></a>
+              <a href={position.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp Frido" data-testid="hero-whatsapp"><MessageCircle size={15} /></a>
+              <a href={position.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Frido" data-testid="hero-linkedin"><Linkedin size={15} /></a>
             </div>
           </div>
+          <div className="portrait-frame">
+            {/* Source: PNG without background */}
+            <img className="portrait-image" src={portraitImage} alt="Frido Evindey Manihuruk" data-testid="img-hero-portrait" />
+            <span className="hero-number">01 / 06</span>
+          </div>
+          <div className="hero-side-label"><span>DATA ANALYST &amp;</span><span>SUPPLY CHAIN</span></div>
         </div>
       </div>
       <div className="scroll-cue mono-label"><span className="scroll-line" /> Scroll to explore <ArrowDown size={13} /></div>
