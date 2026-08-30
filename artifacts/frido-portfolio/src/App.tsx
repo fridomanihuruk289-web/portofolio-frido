@@ -207,7 +207,7 @@ function About() {
             {[
               ['3.71', 'IPK / 4.00'],
               ['20+', 'Publikasi Ilmiah'],
-              ['5+', 'Pengalaman Organisasi'],
+              ['3', 'Pengalaman Organisasi'],
               ['2026', 'Tahun Lulus'],
             ].map(([number, label]) => (
               <div className="stat" key={label} data-testid={`stat-${label.replaceAll(' ', '-').toLowerCase()}`}>
