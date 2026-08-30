@@ -524,9 +524,11 @@ body { overflow-x: hidden; }
 .dark-card .tag { border-color: #435169; color: #c4cfdb; }
 .project-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; color: var(--burgundy); font-size: .73rem; font-weight: 700; text-decoration: none; }
 .dark-card .project-link { color: #e3bdcf; }
-.embed-frame { position: relative; min-height: 125px; margin-top: 22px; border: 1px dashed #8190a0; background: rgba(255,255,255,.05); overflow: hidden; }
-.embed-frame iframe { width: 100%; height: 100%; min-height: 125px; border: 0; opacity: .9; }
-.embed-note { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; pointer-events: none; color: #aebac8; text-align: center; font-size: .69rem; }
+.embed-frame { position: relative; width: 100%; min-height: 795px; margin-top: 22px; border: 1px dashed #8190a0; background: rgba(255,255,255,.05); overflow: hidden; }
+.embed-frame .tableauPlaceholder { width: 100% !important; min-height: 795px; }
+.embed-frame .tableauPlaceholder iframe { display: block; width: 100% !important; min-height: 795px; border: 0; opacity: .98; }
+.embed-frame .tableauViz { width: 100% !important; }
+.embed-note { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 14px; pointer-events: none; background: rgba(15,23,42,.84); color: #e6edf4; text-align: center; font-size: .69rem; }
 .supply-visual { display: grid; grid-template-columns: 1fr 1.35fr; gap: 11px; background: #f0f3f5; }
 .excel-sheet, .mini-chart { position: relative; border: 1px solid #c7d1da; background: #fff; overflow: hidden; }
 .excel-sheet .placeholder-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .68; }
@@ -625,6 +627,8 @@ body { overflow-x: hidden; }
   .project-card, .research-card { display: block; }
   .project-visual { min-height: 190px; }
   .project-content, .research-copy { padding: 25px 22px; }
+  .embed-frame { min-height: 1077px; }
+  .embed-frame .tableauPlaceholder, .embed-frame .tableauPlaceholder iframe { min-height: 1077px; }
   .research-visual { min-height: 230px; }
   .skills-grid { display: block; }
   .skill-group + .skill-group { margin-top: 16px; }

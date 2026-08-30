@@ -304,13 +304,54 @@ function Experience() {
   );
 }
 
-function EmbedPlaceholder({ label }: { label: string }) {
-  const iframeMarkup = `<html><body style="margin:0;background:#17243a;color:#aebac8;display:grid;place-items:center;font:11px monospace;letter-spacing:1px">TABLEAU EMBED AREA</body></html>`;
+function TableauEmbed({ label }: { label: string }) {
+  const tableauRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = tableauRef.current;
+    if (!container) return;
+
+    const script = document.createElement('script');
+    script.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    script.async = true;
+    container.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
+
   return (
-    <div className="embed-frame">
+    <div ref={tableauRef} className="embed-frame w-full overflow-hidden">
       {/* COPY PASTE TABLEAU EMBED CODE DI SINI */}
-      <iframe title={`${label} Tableau embed placeholder`} srcDoc={iframeMarkup} />
-      <div className="embed-note"><ExternalLink size={15} /><span>[GANTI: Link / embed Tableau Public]</span></div>
+      <div className="tableauPlaceholder" id="viz1788090535935" style={{ position: 'relative', width: '100%' }}>
+        <noscript>
+          <a href="https://public.tableau.com/views/SalesPerformanceDashboard_17878396204710/Dashboard1?:showVizHome=no">
+            <img
+              alt="Sales Performance Dashboard 2025 Toko Peralatan Dapur ABC"
+              src="https://public.tableau.com/static/images/Sa/SalesPerformanceDashboard_17878396204710/Dashboard1/1_rss.png"
+              style={{ border: 'none', width: '100%' }}
+            />
+          </a>
+        </noscript>
+        <object className="tableauViz" style={{ display: 'none' }}>
+          <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+          <param name="embed_code_version" value="3" />
+          <param name="site_root" value="" />
+          <param name="name" value="SalesPerformanceDashboard_17878396204710/Dashboard1" />
+          <param name="tabs" value="no" />
+          <param name="toolbar" value="yes" />
+          <param name="static_image" value="https://public.tableau.com/static/images/Sa/SalesPerformanceDashboard_17878396204710/Dashboard1/1.png" />
+          <param name="animate_transition" value="yes" />
+          <param name="display_static_image" value="yes" />
+          <param name="display_spinner" value="yes" />
+          <param name="display_overlay" value="yes" />
+          <param name="display_count" value="yes" />
+          <param name="language" value="en-US" />
+          <param name="filter" value="publish=yes" />
+        </object>
+      </div>
+      <div className="embed-note"><ExternalLink size={15} /><span>{label} • live Tableau dashboard</span></div>
     </div>
   );
 }
@@ -337,8 +378,8 @@ function Projects() {
               <div className="tag-list">
                 {['Data Cleaning', 'Descriptive Analytics', 'Data Visualization', 'Cross-Selling Strategy'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              <EmbedPlaceholder label="Retail Sales Performance Dashboard" />
-              <a className="project-link" href="#kontak" data-testid="link-tableau-retail">[GANTI: Link ke Tableau Public] <ArrowUpRight size={14} /></a>
+              <TableauEmbed label="Retail Sales Performance Dashboard" />
+              <a className="project-link" href="https://public.tableau.com/views/SalesPerformanceDashboard_17878396204710/Dashboard1?:showVizHome=no" target="_blank" rel="noreferrer" data-testid="link-tableau-retail">Buka di Tableau Public <ArrowUpRight size={14} /></a>
             </div>
           </article>
 
