@@ -26,6 +26,7 @@ import supplyChainDashboardImage from '@assets/image_1788099334600.png';
 import retailDashboardImage from '@assets/image_1788099566300.png';
 import supplyChainImage from '@assets/image_868571.png_1788097299939.png';
 import arimaForecastImage from '@assets/Rplot.png_1788097319770.png';
+import irfImage from '@assets/download_1788154953408.png';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -389,10 +390,17 @@ function Projects() {
 
           <article className="research-card reveal delay-2">
             <div className="research-visual">
-              {/* [GANTI: Masukkan gambar grafik IRF / FEVD di sini] */}
-              <div className="irf-chart" data-testid="placeholder-research-chart">
-                <span className="placeholder-badge">[GANTI: Grafik IRF / FEVD]</span>
-              </div>
+              <a
+                className="irf-image-link"
+                href="https://drive.google.com/file/d/1jLk5b-uzoxQ6REQIHOWJpdEadkbn8iWq/view?usp=drive_link"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Buka grafik IRF lengkap di Google Drive"
+                data-testid="link-irf-drive"
+              >
+                <img className="irf-image" src={irfImage} alt="Impulse response functions untuk penelitian Global Shocks" />
+                <span className="irf-image-label">Buka grafik lengkap <ArrowUpRight size={14} /></span>
+              </a>
             </div>
             <div className="research-copy">
               <div className="project-number mono-label">Project 03 / Macroeconomics research</div>
