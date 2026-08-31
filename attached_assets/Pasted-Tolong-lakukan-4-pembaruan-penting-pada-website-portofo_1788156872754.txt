@@ -1,0 +1,57 @@
+Tolong lakukan 4 pembaruan penting pada website portofolio saya. Lakukan dengan teliti dan pastikan tidak ada kode yang rusak.
+
+=== REVISI 1: PERBAIKI BUG TAB PENGALAMAN ===
+Terdapat bug pada JavaScript untuk navigasi tab di section "Pengalaman". Saat ini, jika tab "Organisasi" diklik, kontennya kosong, dan jika diklik kembali ke "Pengalaman Kerja", kontennya juga kosong.
+Tolong perbaiki logika JavaScript-nya! Pastikan fungsinya secara dinamis menyembunyikan (menambahkan class 'hidden') pada semua tab content, dan hanya menampilkan (menghapus class 'hidden') pada target ID yang sesuai saat tombol tab diklik. Pastikan juga styling tombol tab yang aktif berubah dengan benar.
+
+=== REVISI 2: UPDATE KONTEN ORGANISASI & TAMBAHKAN FOTO ===
+Ganti isi konten di tab "Organisasi" dengan struktur layout flex/grid (gambar di satu sisi, teks di sisi lain). Gunakan teks yang sudah diringkas ini beserta tag gambarnya:
+
+1. GenBI Sumatera Utara (Agustus 2025 – Juni 2026)
+- Posisi: Anggota Divisi Pengabdian Masyarakat
+- Deskripsi: 
+  • Sekretaris Panitia edukasi keuangan & CBP Rupiah di SLB (67+ peserta), mengelola administrasi (TOR, LPJ) dan koordinasi pihak sekolah.
+  • Koordinator Konsumsi program donor darah bersama PMI Kota Medan.
+- Gambar: Tambahkan <img src="DSC00677.jpg" alt="Kegiatan GenBI" class="w-full h-48 object-cover rounded-lg shadow-sm">
+
+2. Himpunan Mahasiswa Ilmu Ekonomi (Februari 2024 – Desember 2024)
+- Posisi: Koordinator Divisi Agama Kristen
+- Deskripsi:
+  • Memimpin 3 anggota divisi dan berkolaborasi dengan 30 pengurus himpunan dalam program kerja keagamaan dan sosial.
+  • Menjadi PIC utama perayaan Natal (500+ peserta, 14 dosen) dan koordinator bakti sosial panti asuhan.
+- Gambar: Tambahkan <img src="IMG_2510.JPG.jpg" alt="Kegiatan Himpunan" class="w-full h-48 object-cover rounded-lg shadow-sm">
+
+3. PSM Magnificum Et Bonum (September 2022 – Juni 2026)
+- Posisi: Asisten Pelatih
+- Deskripsi:
+  • Melatih dan mengevaluasi perkembangan vokal 40–50 anggota paduan suara secara rutin setiap minggu.
+  • Dipercaya sebagai conductor untuk 46 penyanyi pada Konser ke-7 PSM Magnificum Et Bonum.
+- Gambar: Tambahkan <img src="DSC02683.jpg" alt="Konser PSM" class="w-full h-48 object-cover rounded-lg shadow-sm">
+
+=== REVISI 3: UPDATE TOOLS TEKNIS ===
+Pada section Keahlian (Core Competencies), di bagian "Tools Teknis", tolong HAPUS: Python, SQL, dan Google Looker Studio.
+Lalu TAMBAHKAN: Mendeley. 
+(Sehingga list akhirnya menjadi: Microsoft Excel, EViews, RStudio, Tableau, SmartPLS, Canva, Mendeley).
+
+=== REVISI 4: TAMBAHKAN SECTION "PUBLIKASI" BARU ===
+1. Tambahkan menu "Publikasi" pada Navbar, letakkan di antara "Sertifikasi" dan "Kontak".
+2. Buat section baru dengan id="publikasi" tepat di atas section "Kontak".
+3. Desain section ini sebagai daftar vertikal (list) yang bersih dan elegan. Setiap item harus memiliki Judul Paper (Bold/Besar), Nama Jurnal & Tahun (Italic/Warna sekunder), Badge/Pill untuk (SINTA X), dan ikon link (Tautan luar).
+4. Masukkan data ke-14 publikasi berikut ini ke dalam desain tersebut:
+
+1. Respons Dinamis Sektor Keuangan dan Sektor Riil Indonesia terhadap Guncangan Ketidakpastian Kebijakan Perdagangan AS-Tiongkok | E-Jurnal Ekonomi dan Bisnis UNUD, Vol. 15 No. 3, 2026 | SINTA 3 | Link: https://doi.org/10.24843/EEB.2026.v15.i03.p08
+2. Pengaruh Faktor-Faktor Ekonomi Makro Terhadap Stabilitas Perbankan di Indonesia | Jurnal Riset Ilmu Akuntansi, Vol. 3 No. 2, 2024 | SINTA 3 | Link: https://doi.org/10.55606/akuntansi.v3i2.1987
+3. Analisis Pengaruh Ekspor, Impor, dan Jumlah Uang Beredar di Indonesia Terhadap Kurs Rupiah/USD | Jurnal Riset Ilmu Ekonomi, Vol. 3 No. 2, 2023 | SINTA 3 | Link: https://doi.org/10.23969/jrie.v3i2.70
+4. Comparative Study Between Conventional Pawnshops and Sharia Pawnshops | ADILLA: Jurnal Ilmiah Ekonomi Syari'ah, Vol. 8 No. 1, 2025 | SINTA 3 | Link: https://doi.org/10.52166/adilla.v8i1.6655
+5. Unmasking the Hidden Hero: Strengthening North Sumatra's Iconic Commodities through Financial Services | Jurnal Inovasi Ekonomi, Vol. 10 No. 1, 2025 | SINTA 4 | Link: https://doi.org/10.22219/jiko.v10i01.39049
+6. Analisis Pengaruh IPM, TPT, dan UMR terhadap Jumlah Penduduk Miskin di Indonesia | Jurnal Pendidikan Ekonomi, Vol. 18 No. 2, 2024 | SINTA 4 | Link: https://garuda.kemdiktisaintek.go.id/documents/detail/4309172
+7. Analisis Faktor-faktor yang Mempengaruhi Permintaan Uang di Provinsi Bali Menggunakan ECM | Jurnal Pendidikan Ekonomi (JUPE), Vol. 13 No. 1, 2025 | SINTA 4 | Link: https://doi.org/10.26740/jupe.v13n1.p31-43
+8. Analisis Pengaruh PMDN dan PMA terhadap PDRB di Sumatera Utara | Studi Ekonomi Dan Kebijakan Publik, Vol. 2 No. 2, 2024 | SINTA 5 | Link: https://doi.org/10.35912/sekp.v2i2.2729
+9. Etika Ekonomi dalam Bisnis Digital: Tantangan UMKM di Era Perdagangan Global | J-CEKI: Jurnal Cendekia Ilmiah, Vol. 4 No. 2, 2025 | SINTA 5 | Link: https://al-haramjournal.co.id/JCEKI/article/view/6561
+10. Analisis Fluktuasi Nilai Tukar Rupiah/USD serta Peran Uang Beredar dan Suku Bunga dalam Kegiatan Impor | Jurnal Ekonomi dan Bisnis (EK&BI), Vol. 7 No. 2, 2024 | SINTA 5 | Link: https://doi.org/10.37600/ekbi.v7i2.1732
+11. Analisis Pengaruh Tingkat Literasi Koperasi dan Pengalaman Organisasi Terhadap Minat Mahasiswa | Jurnal Publikasi Ekonomi Dan Akuntansi, Vol. 5 No. 3, 2025 | SINTA 5 | Link: https://doi.org/10.51903/jupea.v5i3.4149
+12. Analisis Dampak Jangka Pendek dan Panjang dari Inflasi, Suku Bunga, dan Pengeluaran Pemerintah | Jurnal Ekonomi dan Bisnis (EK&BI), Vol. 7 No. 2, 2024 | SINTA 5 | Link: https://doi.org/10.37600/ekbi.v7i2.1767
+13. The Effect of Education, HDI, Economic Growth, and Minimum Wage on Unemployment | Jurnal Penelitian Ekonomi Dan Akuntansi, Vol. 9 No. 2, 2024 | SINTA 5 | Link: https://jurnalekonomi.unisla.ac.id/index.php/jpensi/article/view/2042
+14. The Influence of Consumer Legal Literacy, Digital Contract Transparency, and Fear of Debt on Decisions to Use Online Loan Services | Jakadara: Jurnal Ekonomika, Bisnis, dan Humaniora, Vol. 4 No. 2, 2025 | SINTA 6 | Link: https://doi.org/10.36002/jd.v4i2.4051
+
+Gunakan layout yang rapi agar ke-14 daftar ini nyaman dibaca saat di-scroll.

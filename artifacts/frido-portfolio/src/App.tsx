@@ -27,6 +27,9 @@ import retailDashboardImage from '@assets/image_1788099566300.png';
 import supplyChainImage from '@assets/image_868571.png_1788097299939.png';
 import arimaForecastImage from '@assets/Rplot.png_1788097319770.png';
 import irfImage from '@assets/download_1788154953408.png';
+import genbiImage from '@assets/DSC00677_1788156866901.jpg';
+import himpunanImage from '@assets/IMG_2510.JPG_1788156866897.jpeg';
+import psmImage from '@assets/DSC02683_1788156866900.jpg';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -55,6 +58,7 @@ const navigation = [
   ['Pengalaman', 'pengalaman'],
   ['Proyek', 'proyek'],
   ['Sertifikasi', 'sertifikasi'],
+  ['Publikasi', 'publikasi'],
   ['Kontak', 'kontak'],
 ];
 
@@ -253,55 +257,122 @@ const workExperience = [
 
 const orgExperience = [
   {
-    date: 'AGU 2025 — JUN 2026',
+    date: 'AGUSTUS 2025 — JUNI 2026',
     title: 'Anggota Divisi Pengabdian Masyarakat',
     org: 'GenBI Sumatera Utara',
-    text: 'Sekretaris panitia program edukasi keuangan CBP Rupiah, koordinator konsumsi kegiatan donor darah bersama PMI Kota Medan.',
+    image: genbiImage,
+    alt: 'Kegiatan GenBI',
+    points: [
+      'Sekretaris panitia edukasi keuangan dan CBP Rupiah di SLB (67+ peserta), mengelola administrasi (TOR, LPJ) dan koordinasi pihak sekolah.',
+      'Koordinator konsumsi program donor darah bersama PMI Kota Medan.',
+    ],
   },
   {
-    date: 'FEB — DES 2024',
+    date: 'FEBRUARI 2024 — DESEMBER 2024',
     title: 'Koordinator Divisi Agama Kristen',
     org: 'Himpunan Mahasiswa Ilmu Ekonomi',
-    text: 'Mengoordinasikan 3 anggota divisi, PIC kegiatan Natal (500+ peserta, 14 dosen), dan kegiatan sosial panti asuhan (18 anak).',
+    image: himpunanImage,
+    alt: 'Kegiatan Himpunan',
+    points: [
+      'Memimpin 3 anggota divisi dan berkolaborasi dengan 30 pengurus himpunan dalam program kerja keagamaan dan sosial.',
+      'Menjadi PIC utama perayaan Natal (500+ peserta, 14 dosen) dan koordinator bakti sosial panti asuhan.',
+    ],
   },
   {
-    date: 'SEP 2022 — JUN 2026',
+    date: 'SEPTEMBER 2022 — JUNI 2026',
     title: 'Asisten Pelatih',
     org: 'PSM Magnificum Et Bonum',
-    text: 'Membina 40–50 anggota paduan suara, conductor untuk 46 penyanyi pada Konser ke-7.',
+    image: psmImage,
+    alt: 'Konser PSM',
+    points: [
+      'Melatih dan mengevaluasi perkembangan vokal 40–50 anggota paduan suara secara rutin setiap minggu.',
+      'Dipercaya sebagai conductor untuk 46 penyanyi pada Konser ke-7 PSM Magnificum Et Bonum.',
+    ],
   },
 ];
 
 function Experience() {
   const [activeTab, setActiveTab] = useState<'work' | 'org'>('work');
-  const entries = activeTab === 'work' ? workExperience : orgExperience;
+  const setTab = (tab: 'work' | 'org') => setActiveTab(tab);
   return (
     <section id="pengalaman" className="experience-section section-pad">
       <div className="section-wrap">
         <SectionHeading index="03 / Pengalaman" title="Bekerja dengan teliti. Memimpin dengan konteks.">
           Pengalaman yang membentuk cara kerja: disiplin pada data, tenang dalam koordinasi, dan selalu menghubungkan tugas kecil dengan hasil yang lebih besar.
         </SectionHeading>
-        <div className="experience-tabs reveal">
-          <button className={`tab-button ${activeTab === 'work' ? 'active' : ''}`} onClick={() => setActiveTab('work')} data-testid="tab-work">Pengalaman Kerja</button>
-          <button className={`tab-button ${activeTab === 'org' ? 'active' : ''}`} onClick={() => setActiveTab('org')} data-testid="tab-organization">Organisasi</button>
+        <div className="experience-tabs reveal" role="tablist" aria-label="Kategori pengalaman">
+          <button
+            className={`tab-button ${activeTab === 'work' ? 'active' : ''}`}
+            id="tab-work"
+            role="tab"
+            aria-selected={activeTab === 'work'}
+            aria-controls="pengalaman-kerja-panel"
+            onClick={() => setTab('work')}
+            data-testid="tab-work"
+          >
+            Pengalaman Kerja
+          </button>
+          <button
+            className={`tab-button ${activeTab === 'org' ? 'active' : ''}`}
+            id="tab-organization"
+            role="tab"
+            aria-selected={activeTab === 'org'}
+            aria-controls="organisasi-panel"
+            onClick={() => setTab('org')}
+            data-testid="tab-organization"
+          >
+            Organisasi
+          </button>
         </div>
-        <div className="timeline" data-testid={`timeline-${activeTab}`}>
-          {entries.map((entry, index) => (
-            <article className={`timeline-item reveal delay-${Math.min(index + 1, 3)}`} key={entry.title}>
-              <div className="timeline-date">{entry.date}</div>
-              <div className="timeline-card">
-                <h3>{entry.title}</h3>
-                <span className="org">{entry.org}</span>
-                <p>{entry.text}</p>
-                {activeTab === 'org' && (
-                  <div className="org-photo">
-                    <div className="org-photo-box" data-testid={`placeholder-org-photo-${index}`}>PHOTO</div>
-                    <span>[GANTI: Foto kegiatan organisasi]</span>
+        <div
+          id="pengalaman-kerja-panel"
+          className={`tab-panel ${activeTab !== 'work' ? 'hidden' : ''}`}
+          role="tabpanel"
+          aria-labelledby="tab-work"
+          hidden={activeTab !== 'work'}
+          data-testid="panel-work"
+        >
+          <div className="timeline" data-testid="timeline-work">
+            {workExperience.map((entry, index) => (
+              <article className={`timeline-item reveal delay-${Math.min(index + 1, 3)} ${activeTab === 'work' ? 'is-visible' : ''}`} key={entry.title}>
+                <div className="timeline-date">{entry.date}</div>
+                <div className="timeline-card">
+                  <h3>{entry.title}</h3>
+                  <span className="org">{entry.org}</span>
+                  <p>{entry.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div
+          id="organisasi-panel"
+          className={`tab-panel ${activeTab !== 'org' ? 'hidden' : ''}`}
+          role="tabpanel"
+          aria-labelledby="tab-organization"
+          hidden={activeTab !== 'org'}
+          data-testid="panel-organization"
+        >
+          <div className="timeline" data-testid="timeline-org">
+            {orgExperience.map((entry, index) => (
+              <article className={`timeline-item reveal delay-${Math.min(index + 1, 3)} ${activeTab === 'org' ? 'is-visible' : ''}`} key={entry.title}>
+                <div className="timeline-date">{entry.date}</div>
+                <div className="timeline-card org-entry-grid">
+                  <figure className="org-media">
+                    <img src={entry.image} alt={entry.alt} />
+                    <figcaption>{entry.alt}</figcaption>
+                  </figure>
+                  <div className="org-copy">
+                    <h3>{entry.title}</h3>
+                    <span className="org">{entry.org}</span>
+                    <ul className="org-points">
+                      {entry.points.map((point) => <li key={point}>{point}</li>)}
+                    </ul>
                   </div>
-                )}
-              </div>
-            </article>
-          ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -431,7 +502,7 @@ function Projects() {
 const skillGroups = [
   { icon: <LineChart size={18} />, title: 'Analisis & Bisnis', skills: ['Analisis Ekonomi & Keuangan', 'Analisis Data', 'Analytical Thinking & Problem Solving', 'Banking & Financial Systems'] },
   { icon: <Users size={18} />, title: 'Kepemimpinan & Interpersonal', skills: ['Leadership', 'Communication', 'Teamwork', 'Stakeholder Coordination'] },
-  { icon: <Code2 size={18} />, title: 'Tools Teknis', skills: ['Microsoft Excel', 'EViews', 'RStudio', 'Tableau', 'SmartPLS', 'Canva', 'Python', 'SQL', 'Google Looker Studio'] },
+  { icon: <Code2 size={18} />, title: 'Tools Teknis', skills: ['Microsoft Excel', 'EViews', 'RStudio', 'Tableau', 'SmartPLS', 'Canva', 'Mendeley'] },
 ];
 
 function Skills() {
@@ -484,13 +555,136 @@ function Certifications() {
   );
 }
 
+const publications = [
+  {
+    title: 'Respons Dinamis Sektor Keuangan dan Sektor Riil Indonesia terhadap Guncangan Ketidakpastian Kebijakan Perdagangan AS-Tiongkok',
+    journal: 'E-Jurnal Ekonomi dan Bisnis UNUD, Vol. 15 No. 3, 2026',
+    sinta: 'SINTA 3',
+    link: 'https://doi.org/10.24843/EEB.2026.v15.i03.p08',
+  },
+  {
+    title: 'Pengaruh Faktor-Faktor Ekonomi Makro Terhadap Stabilitas Perbankan di Indonesia',
+    journal: 'Jurnal Riset Ilmu Akuntansi, Vol. 3 No. 2, 2024',
+    sinta: 'SINTA 3',
+    link: 'https://doi.org/10.55606/akuntansi.v3i2.1987',
+  },
+  {
+    title: 'Analisis Pengaruh Ekspor, Impor, dan Jumlah Uang Beredar di Indonesia Terhadap Kurs Rupiah/USD',
+    journal: 'Jurnal Riset Ilmu Ekonomi, Vol. 3 No. 2, 2023',
+    sinta: 'SINTA 3',
+    link: 'https://doi.org/10.23969/jrie.v3i2.70',
+  },
+  {
+    title: 'Comparative Study Between Conventional Pawnshops and Sharia Pawnshops',
+    journal: "ADILLA: Jurnal Ilmiah Ekonomi Syari'ah, Vol. 8 No. 1, 2025",
+    sinta: 'SINTA 3',
+    link: 'https://doi.org/10.52166/adilla.v8i1.6655',
+  },
+  {
+    title: "Unmasking the Hidden Hero: Strengthening North Sumatra's Iconic Commodities through Financial Services",
+    journal: 'Jurnal Inovasi Ekonomi, Vol. 10 No. 1, 2025',
+    sinta: 'SINTA 4',
+    link: 'https://doi.org/10.22219/jiko.v10i01.39049',
+  },
+  {
+    title: 'Analisis Pengaruh IPM, TPT, dan UMR terhadap Jumlah Penduduk Miskin di Indonesia',
+    journal: 'Jurnal Pendidikan Ekonomi, Vol. 18 No. 2, 2024',
+    sinta: 'SINTA 4',
+    link: 'https://garuda.kemdiktisaintek.go.id/documents/detail/4309172',
+  },
+  {
+    title: 'Analisis Faktor-faktor yang Mempengaruhi Permintaan Uang di Provinsi Bali Menggunakan ECM',
+    journal: 'Jurnal Pendidikan Ekonomi (JUPE), Vol. 13 No. 1, 2025',
+    sinta: 'SINTA 4',
+    link: 'https://doi.org/10.26740/jupe.v13n1.p31-43',
+  },
+  {
+    title: 'Analisis Pengaruh PMDN dan PMA terhadap PDRB di Sumatera Utara',
+    journal: 'Studi Ekonomi Dan Kebijakan Publik, Vol. 2 No. 2, 2024',
+    sinta: 'SINTA 5',
+    link: 'https://doi.org/10.35912/sekp.v2i2.2729',
+  },
+  {
+    title: 'Etika Ekonomi dalam Bisnis Digital: Tantangan UMKM di Era Perdagangan Global',
+    journal: 'J-CEKI: Jurnal Cendekia Ilmiah, Vol. 4 No. 2, 2025',
+    sinta: 'SINTA 5',
+    link: 'https://al-haramjournal.co.id/JCEKI/article/view/6561',
+  },
+  {
+    title: 'Analisis Fluktuasi Nilai Tukar Rupiah/USD serta Peran Uang Beredar dan Suku Bunga dalam Kegiatan Impor',
+    journal: 'Jurnal Ekonomi dan Bisnis (EK&BI), Vol. 7 No. 2, 2024',
+    sinta: 'SINTA 5',
+    link: 'https://doi.org/10.37600/ekbi.v7i2.1732',
+  },
+  {
+    title: 'Analisis Pengaruh Tingkat Literasi Koperasi dan Pengalaman Organisasi Terhadap Minat Mahasiswa',
+    journal: 'Jurnal Publikasi Ekonomi Dan Akuntansi, Vol. 5 No. 3, 2025',
+    sinta: 'SINTA 5',
+    link: 'https://doi.org/10.51903/jupea.v5i3.4149',
+  },
+  {
+    title: 'Analisis Dampak Jangka Pendek dan Panjang dari Inflasi, Suku Bunga, dan Pengeluaran Pemerintah',
+    journal: 'Jurnal Ekonomi dan Bisnis (EK&BI), Vol. 7 No. 2, 2024',
+    sinta: 'SINTA 5',
+    link: 'https://doi.org/10.37600/ekbi.v7i2.1767',
+  },
+  {
+    title: 'The Effect of Education, HDI, Economic Growth, and Minimum Wage on Unemployment',
+    journal: 'Jurnal Penelitian Ekonomi Dan Akuntansi, Vol. 9 No. 2, 2024',
+    sinta: 'SINTA 5',
+    link: 'https://jurnalekonomi.unisla.ac.id/index.php/jpensi/article/view/2042',
+  },
+  {
+    title: 'The Influence of Consumer Legal Literacy, Digital Contract Transparency, and Fear of Debt on Decisions to Use Online Loan Services',
+    journal: 'Jakadara: Jurnal Ekonomika, Bisnis, dan Humaniora, Vol. 4 No. 2, 2025',
+    sinta: 'SINTA 6',
+    link: 'https://doi.org/10.36002/jd.v4i2.4051',
+  },
+];
+
+function Publications() {
+  return (
+    <section id="publikasi" className="publication-section section-pad">
+      <div className="section-wrap">
+        <SectionHeading index="07 / Publikasi" title="Riset yang meninggalkan jejak.">
+          Empat belas publikasi tentang ekonomi, kebijakan, dan keputusan finansial—ditulis untuk dibaca, diuji, dan digunakan.
+        </SectionHeading>
+        <div className="publication-list">
+          {publications.map((publication, index) => (
+            <article className="publication-item reveal" key={publication.title} data-testid={`publication-${index + 1}`}>
+              <div className="publication-number mono-label">{String(index + 1).padStart(2, '0')}</div>
+              <div className="publication-main">
+                <h3 className="publication-title">{publication.title}</h3>
+                <p className="publication-meta">{publication.journal}</p>
+              </div>
+              <div className="publication-side">
+                <span className="sinta-badge">{publication.sinta}</span>
+                <a
+                  className="publication-link"
+                  href={publication.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Buka publikasi: ${publication.title}`}
+                  data-testid={`publication-link-${index + 1}`}
+                >
+                  <ExternalLink size={15} />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section id="kontak" className="contact-section section-pad">
       <div className="section-wrap">
         <div className="contact-grid">
           <div className="reveal">
-            <div className="hero-kicker mono-label">07 / Kontak</div>
+            <div className="hero-kicker mono-label">08 / Kontak</div>
             <h2 className="contact-title display-font">Mari membangun keputusan yang <em>lebih baik.</em></h2>
             <p className="contact-copy">Tertarik berdiskusi tentang supply chain, analisis ekonomi, atau peluang kolaborasi? Saya siap terhubung.</p>
             <div className="contact-actions">
@@ -525,6 +719,7 @@ function Home() {
         <Projects />
         <Skills />
         <Certifications />
+        <Publications />
         <Contact />
       </main>
     </div>
