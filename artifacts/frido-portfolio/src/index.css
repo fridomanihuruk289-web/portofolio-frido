@@ -438,7 +438,7 @@ body { overflow-x: hidden; }
 .hero-title { max-width: 610px; margin: 0; color: var(--navy); font-size: clamp(4.2rem, 9.3vw, 9.4rem); line-height: .8; letter-spacing: -.09em; }
 .hero-title em { display: block; color: var(--navy); font-size: .48em; font-style: italic; font-weight: 700; letter-spacing: -.07em; line-height: .95; }
 .hero-title strong { display: block; font-weight: 800; }
-.hero-role { display: inline-flex; margin-top: 22px; padding: 8px 12px; border: 1px solid rgba(15,23,42,.25); color: var(--navy); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.hero-role { display: inline-flex; max-width: min(100%, 390px); margin-top: 22px; padding: 8px 12px; border: 1px solid rgba(15,23,42,.25); color: var(--navy); font-size: .7rem; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-transform: uppercase; }
 .hero-copy { max-width: 440px; margin-top: 24px; color: var(--navy); font-size: .92rem; line-height: 1.75; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
 .button-primary { background: var(--burgundy); color: #fff; border-color: var(--burgundy); border-radius: 999px; padding-inline: 20px; }
@@ -541,6 +541,7 @@ body { overflow-x: hidden; }
 .tableau-image-preview::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 58%, rgba(15,23,42,.66)); }
 .tableau-image-preview-label { position: absolute; right: 13px; bottom: 13px; z-index: 1; display: inline-flex; align-items: center; gap: 6px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.72); border-radius: 999px; background: rgba(15,23,42,.86); color: #fff; font-size: .68rem; font-weight: 700; transition: background .2s ease, transform .2s ease; }
 .tableau-image-preview:hover .tableau-image-preview-label, .tableau-image-preview:focus-visible .tableau-image-preview-label { background: var(--burgundy); transform: translateY(-2px); }
+.tableau-embed-placeholder { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 220px; margin-top: 22px; border: 1px solid #cbd5e1; background: #fff; box-shadow: 0 12px 28px rgba(15,23,42,.1); }
 .supply-visual { display: flex; flex-direction: column; gap: 1.5rem; background: #f0f3f5; padding: 32px 36px; }
 .forecast-image-card { margin: 0; }
 .forecast-image { display: block; background: #fff; border-color: #cbd5e1; }

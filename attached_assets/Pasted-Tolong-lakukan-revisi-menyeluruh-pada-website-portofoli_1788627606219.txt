@@ -1,0 +1,45 @@
+Tolong lakukan revisi menyeluruh pada website portofolio saya. Target audiens dan posisi lamaran telah berubah. Saya sekarang melamar posisi "Internship - Business Development Staff" di PT Kawasan Industri Medan (KIM). 
+
+Lakukan 5 perubahan utama berikut dengan teliti tanpa merusak struktur layout yang sudah bagus:
+
+=== 1. UPDATE LINK CV ===
+Ubah semua tautan tombol "Unduh CV" (baik di Navbar maupun di Hero Section) menjadi link ini:
+https://drive.google.com/file/d/12WnCpTzfs_IuJtOwbDi2PaQ2vI8wScFb/view?usp=drive_link
+
+=== 2. REVISI HERO SECTION (TARGET POSISI) ===
+- Ubah Badge/Pill posisi yang dilamar (di bawah nama) menjadi: "Internship – Business Development Staff"
+- Ubah Tagline paragraf di Hero Section menjadi: 
+  "Calon profesional yang siap membawa kemampuan analisis data, pemetaan pasar industri, dan riset ekonomi ke dalam pengembangan bisnis kawasan industri dan ekosistem tenant secara sistematis dan berbasis data."
+
+=== 3. REVISI SECTION "TENTANG SAYA" ===
+Ganti teks paragraf profil yang lama dengan ringkasan eksekutif berikut:
+"Sarjana Ekonomi Universitas Negeri Medan (IPK 3,71) dengan pengalaman solid dalam analisis data, riset ekonomi, dan koordinasi stakeholder. Memiliki rekam jejak magang di BAPPERIDA Sumatera Utara dalam pengolahan data regional, serta pengalaman memimpin 40-50 anggota dalam organisasi mahasiswa. Didukung oleh 20+ publikasi ilmiah dan keahlian teknis (Tableau, Excel, EViews, SmartPLS), saya memiliki minat kuat pada business development, market mapping, dan pengembangan kawasan industri."
+
+=== 4. PEROMBAKAN SECTION "PROYEK" (TAMBAH 2 PROYEK BARU DI ATAS) ===
+Saya memiliki 2 proyek baru yang harus diletakkan di urutan PERTAMA dan KEDUA. Proyek lama (Retail, Supply Chain, SVAR) tolong geser ke bawahnya (menjadi urutan 3, 4, dan 5). 
+Untuk 2 proyek baru ini, sediakan tag <iframe> kosong dengan class responsive lebar penuh (w-full, aspect-video) beserta komentar HTML <!-- MASUKKAN KODE EMBED TABLEAU DI SINI --> agar saya bisa menempelkan kodenya nanti.
+
+Berikut data 2 proyek baru tersebut:
+
+Proyek 1 (Urutan 1): Industrial Market, Tenant & Investor Opportunity Mapping
+- Konteks: Menganalisis 100 entitas sintetis dari 10 sektor industri untuk memetakan profil industri, tenant, dan calon investor kawasan industri. Mengolah indikator investasi, kebutuhan lahan, pertumbuhan, dan sinergi ekosistem.
+- Skills: Business Development, Market Intelligence, Opportunity Scoring, Tableau Dashboard.
+- Visual: Sediakan 1 tempat <iframe> Tableau kosong.
+
+Proyek 2 (Urutan 2): Dashboard Kemiskinan dan Kesejahteraan Sosial Pulau Sumatra 2010–2025
+- Konteks: Membangun dashboard berbasis data seluruh kabupaten/kota di Pulau Sumatra untuk menganalisis disparitas kemiskinan dengan mengintegrasikan indikator IPM, UHH, RLS, dan pengeluaran per kapita.
+- Skills: Regional Economic Analysis, Data Integration, Interactive Mapping.
+- Visual: Sediakan 1 tempat <iframe> Tableau kosong.
+
+=== 5. REVISI SECTION "KEAHLIAN" (UBAH JADI KETERAMPILAN) ===
+- Ubah judul section dari "Keahlian" menjadi "Keterampilan".
+- Ganti daftar kategori dan isi tools-nya sesuai data baru ini, namun TETAP gunakan gaya desain grid/pill seperti sebelumnya:
+
+1. Business & Analysis:
+Analisis Data, Market & Industry Analysis, Economic Analysis, Analytical Thinking & Problem Solving, Business Development.
+
+2. Professional:
+Leadership, Communication, Teamwork, Stakeholder Coordination, Project Coordination.
+
+3. Tools:
+Microsoft Excel, Tableau, EViews, SmartPLS, Canva.

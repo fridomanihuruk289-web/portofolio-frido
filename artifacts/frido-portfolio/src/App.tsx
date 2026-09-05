@@ -41,11 +41,11 @@ const queryClient = new QueryClient();
 // KONFIGURASI POSISI — area utama untuk mengganti lamaran berikutnya.
 const position = {
   name: 'Frido Evindey Manihuruk',
-  role: 'Champion Trainee – Supply Chain Management',
+  role: 'Internship – Business Development Staff',
   tagline:
-    'Calon profesional yang siap membawa kemampuan analisis data dan riset ekonomi ke dalam pengelolaan rantai pasok yang lebih efisien, akurat, dan berbasis data.',
+    'Calon profesional yang siap membawa kemampuan analisis data, pemetaan pasar industri, dan riset ekonomi ke dalam pengembangan bisnis kawasan industri dan ekosistem tenant secara sistematis dan berbasis data.',
   // [GANTI: URL CV publik jika ada versi terbaru]
-  cv: 'https://drive.google.com/file/d/1aGQyDurTLheiBfWFR4-zp1C2e-Dp-mUD/view?usp=sharing',
+  cv: 'https://drive.google.com/file/d/12WnCpTzfs_IuJtOwbDi2PaQ2vI8wScFb/view?usp=drive_link',
   email: 'fridomanihuruk289@gmail.com',
   whatsapp: 'https://wa.me/6283163258425',
   // [GANTI: URL LinkedIn jika diperlukan]
@@ -174,7 +174,7 @@ function Hero() {
               Hubungi Saya <ArrowUpRight size={15} />
             </a>
           </div>
-          <div className="hero-role">CHAMPION TRAINEE</div>
+          <div className="hero-role">{position.role}</div>
           <p className="hero-copy">{position.tagline}</p>
         </div>
         <div className="hero-portrait reveal delay-2">
@@ -208,7 +208,7 @@ function About() {
         </SectionHeading>
         <div className="about-grid">
           <p className="profile-summary reveal">
-            Sarjana Ilmu Ekonomi Universitas Negeri Medan (IPK 3,71/4,00) dengan pengalaman dalam analisis data ekonomi regional, riset kebijakan perdagangan dan komoditas, serta koordinasi administratif di lingkungan pemerintahan. Terbiasa bekerja dengan data kuantitatif dan tertarik mengembangkan karier di bidang supply chain, perdagangan, dan logistik.
+            Sarjana Ekonomi Universitas Negeri Medan (IPK 3,71) dengan pengalaman solid dalam analisis data, riset ekonomi, dan koordinasi stakeholder. Memiliki rekam jejak magang di BAPPERIDA Sumatera Utara dalam pengolahan data regional, serta pengalaman memimpin 40-50 anggota dalam organisasi mahasiswa. Didukung oleh 20+ publikasi ilmiah dan keahlian teknis (Tableau, Excel, EViews, SmartPLS), saya memiliki minat kuat pada business development, market mapping, dan pengembangan kawasan industri.
           </p>
           <div className="stat-grid reveal delay-1">
             {[
@@ -412,12 +412,44 @@ function Projects() {
     <section id="proyek" className="projects-section section-pad">
       <div className="section-wrap">
         <SectionHeading index="04 / Proyek & Riset" title="Dari data transaksi sampai guncangan global.">
-          Tiga studi yang menunjukkan rentang berpikir: mengubah data mentah menjadi visibilitas, membuat keputusan persediaan lebih terukur, lalu menguji cerita ekonomi dengan metode yang ketat.
+          Lima studi yang menunjukkan rentang berpikir: memetakan peluang kawasan industri, membaca kesejahteraan regional, mengubah data mentah menjadi visibilitas, membuat keputusan persediaan lebih terukur, lalu menguji cerita ekonomi dengan metode yang ketat.
         </SectionHeading>
         <div className="project-stack">
+          <article className="project-card new-project-card reveal">
+            <div className="project-content">
+              <div className="project-number mono-label">Project 01 / Business development</div>
+              <h3>Industrial Market, Tenant &amp; Investor Opportunity Mapping</h3>
+              <p>Menganalisis 100 entitas sintetis dari 10 sektor industri untuk memetakan profil industri, tenant, dan calon investor kawasan industri. Mengolah indikator investasi, kebutuhan lahan, pertumbuhan, dan sinergi ekosistem.</p>
+              <div className="tag-list">
+                {['Business Development', 'Market Intelligence', 'Opportunity Scoring', 'Tableau Dashboard'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+              </div>
+              {/* MASUKKAN KODE EMBED TABLEAU DI SINI */}
+              <iframe
+                title="Industrial Market, Tenant & Investor Opportunity Mapping Tableau placeholder"
+                className="w-full aspect-video tableau-embed-placeholder"
+              />
+            </div>
+          </article>
+
+          <article className="project-card new-project-card reveal delay-1">
+            <div className="project-content">
+              <div className="project-number mono-label">Project 02 / Regional analysis</div>
+              <h3>Dashboard Kemiskinan dan Kesejahteraan Sosial Pulau Sumatra 2010–2025</h3>
+              <p>Membangun dashboard berbasis data seluruh kabupaten/kota di Pulau Sumatra untuk menganalisis disparitas kemiskinan dengan mengintegrasikan indikator IPM, UHH, RLS, dan pengeluaran per kapita.</p>
+              <div className="tag-list">
+                {['Regional Economic Analysis', 'Data Integration', 'Interactive Mapping'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+              </div>
+              {/* MASUKKAN KODE EMBED TABLEAU DI SINI */}
+              <iframe
+                title="Dashboard Kemiskinan dan Kesejahteraan Sosial Pulau Sumatra Tableau placeholder"
+                className="w-full aspect-video tableau-embed-placeholder"
+              />
+            </div>
+          </article>
+
           <article className="project-card retail-card reveal">
             <div className="project-content">
-              <div className="project-number mono-label">Project 01 / Interactive analysis</div>
+              <div className="project-number mono-label">Project 03 / Interactive analysis</div>
               <h3>Retail Sales Performance Dashboard</h3>
               <p>Menganalisis jutaan baris data transaksi ritel untuk mengidentifikasi tren profitabilitas, performa kategori, dan efisiensi wilayah.</p>
               <div className="tag-list">
@@ -434,7 +466,7 @@ function Projects() {
 
           <article className="project-card forecast-card dark-card reveal delay-1">
             <div className="project-content">
-              <div className="project-number mono-label">Project 02 / Planning model</div>
+              <div className="project-number mono-label">Project 04 / Planning model</div>
               <h3>Supply Chain & Demand Forecasting</h3>
               <p>Memodelkan optimasi persediaan dan memprediksi permintaan masa depan untuk menekan Stockout Rate hingga di bawah batas kritis. Menghitung parameter Reorder Point (ROP) dan Safety Stock.</p>
               <div className="tag-list">
@@ -474,7 +506,7 @@ function Projects() {
               </a>
             </div>
             <div className="research-copy">
-              <div className="project-number mono-label">Project 03 / Macroeconomics research</div>
+              <div className="project-number mono-label">Project 05 / Macroeconomics research</div>
               <h3>Global Shocks & Sovereign Borrowing Costs</h3>
               <p className="research-subtitle">A Structural VAR Analysis on Exchange Rate Pass-Through</p>
               <div className="accordion">
@@ -500,16 +532,16 @@ function Projects() {
 }
 
 const skillGroups = [
-  { icon: <LineChart size={18} />, title: 'Analisis & Bisnis', skills: ['Analisis Ekonomi & Keuangan', 'Analisis Data', 'Analytical Thinking & Problem Solving', 'Banking & Financial Systems'] },
-  { icon: <Users size={18} />, title: 'Kepemimpinan & Interpersonal', skills: ['Leadership', 'Communication', 'Teamwork', 'Stakeholder Coordination'] },
-  { icon: <Code2 size={18} />, title: 'Tools Teknis', skills: ['Microsoft Excel', 'EViews', 'RStudio', 'Tableau', 'SmartPLS', 'Canva', 'Mendeley'] },
+  { icon: <LineChart size={18} />, title: 'Business & Analysis', skills: ['Analisis Data', 'Market & Industry Analysis', 'Economic Analysis', 'Analytical Thinking & Problem Solving', 'Business Development'] },
+  { icon: <Users size={18} />, title: 'Professional', skills: ['Leadership', 'Communication', 'Teamwork', 'Stakeholder Coordination', 'Project Coordination'] },
+  { icon: <Code2 size={18} />, title: 'Tools', skills: ['Microsoft Excel', 'Tableau', 'EViews', 'SmartPLS', 'Canva'] },
 ];
 
 function Skills() {
   return (
     <section className="light-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="05 / Keahlian" title="Alat yang dipakai untuk membuat hal rumit terbaca.">
+        <SectionHeading index="05 / Keterampilan" title="Alat yang dipakai untuk membuat hal rumit terbaca.">
           Fondasi analitis, kemampuan bekerja bersama, serta toolset teknis untuk bergerak dari pertanyaan ke keputusan.
         </SectionHeading>
         <div className="skills-grid">
