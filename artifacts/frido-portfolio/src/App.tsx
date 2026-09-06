@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   ArrowDown,
@@ -57,7 +57,7 @@ const navigation = [
   ['Tentang', 'tentang'],
   ['Pengalaman', 'pengalaman'],
   ['Proyek', 'proyek'],
-  ['Sertifikasi', 'sertifikasi'],
+  ['Pelatihan dan Sertifikasi', 'sertifikasi'],
   ['Publikasi', 'publikasi'],
   ['Kontak', 'kontak'],
 ];
@@ -405,6 +405,82 @@ function TableauImagePreview({
   );
 }
 
+function TableauEmbed({
+  id,
+  alt,
+  image,
+  workbook,
+  mobileHeight,
+  filter,
+}: {
+  id: string;
+  alt: string;
+  image: string;
+  workbook: string;
+  mobileHeight: number;
+  filter?: string;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const vizElement = container?.querySelector('object.tableauViz') as HTMLElement | null;
+    if (!container || !vizElement) return;
+
+    const resizeViz = () => {
+      const width = container.offsetWidth;
+      vizElement.style.width = '100%';
+      vizElement.style.height = width > 500 ? `${width * 0.75}px` : `${mobileHeight}px`;
+    };
+
+    resizeViz();
+    const resizeObserver = new ResizeObserver(resizeViz);
+    resizeObserver.observe(container);
+
+    const scriptElement = document.createElement('script');
+    scriptElement.type = 'text/javascript';
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode?.insertBefore(scriptElement, vizElement);
+
+    return () => {
+      resizeObserver.disconnect();
+      scriptElement.remove();
+    };
+  }, [mobileHeight]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="tableau-embed-container"
+      id={id}
+      style={{ position: 'relative', width: '100%' }}
+      data-testid={`${id}-embed`}
+    >
+      <noscript>
+        <a href={image} target="_blank" rel="noreferrer">
+          <img alt={alt} src={image} />
+        </a>
+      </noscript>
+      <object className="tableauViz" style={{ display: 'none' }}>
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value={workbook} />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="static_image" value={image} />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="en-US" />
+        {filter && <param name="filter" value={filter} />}
+      </object>
+    </div>
+  );
+}
+
 function Projects() {
   const [openResearch, setOpenResearch] = useState<string | null>('background');
   const toggle = (key: string) => setOpenResearch(openResearch === key ? null : key);
@@ -423,10 +499,12 @@ function Projects() {
               <div className="tag-list">
                 {['Business Development', 'Market Intelligence', 'Opportunity Scoring', 'Tableau Dashboard'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              {/* MASUKKAN KODE EMBED TABLEAU DI SINI */}
-              <iframe
-                title="Industrial Market, Tenant & Investor Opportunity Mapping Tableau placeholder"
-                className="w-full aspect-video tableau-embed-placeholder"
+              <TableauEmbed
+                id="viz1788628665009"
+                alt="Dashboard 2"
+                image="https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1.png"
+                workbook="ProjekKIM/Dashboard2"
+                mobileHeight={1477}
               />
             </div>
           </article>
@@ -439,10 +517,13 @@ function Projects() {
               <div className="tag-list">
                 {['Regional Economic Analysis', 'Data Integration', 'Interactive Mapping'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
-              {/* MASUKKAN KODE EMBED TABLEAU DI SINI */}
-              <iframe
-                title="Dashboard Kemiskinan dan Kesejahteraan Sosial Pulau Sumatra Tableau placeholder"
-                className="w-full aspect-video tableau-embed-placeholder"
+              <TableauEmbed
+                id="viz1788628697806"
+                alt="Dashboard Kemiskinan di Pulau Sumatra"
+                image="https://public.tableau.com/static/images/Ke/KemiskinanSumatra/DashboardKemiskinandiPulauSumatra/1.png"
+                workbook="KemiskinanSumatra/DashboardKemiskinandiPulauSumatra"
+                mobileHeight={1527}
+                filter="publish=yes"
               />
             </div>
           </article>
@@ -558,28 +639,68 @@ function Skills() {
 }
 
 const certifications = [
-  ['Bootcamp Data Analyst', 'Excel, SQL, Python, Google Looker Studio · PT. Ebiz Karisma · Juli 2026'],
-  ['TOEFL Prediction', 'Skor 500 · Asterdam Course'],
-  ['Uji Kemahiran Berbahasa Indonesia', 'Skor 565 · Badan Bahasa'],
-  ['E-Learning Pengenalan Kebijakan Publik', 'Kementerian Keuangan · 2026'],
-  ['E-Learning Pengantar Manajemen Keuangan Negara', 'Kementerian Keuangan'],
-  ['Dasar Microsoft Excel untuk Administrasi Perkantoran', 'PT. Yureka Edukasi Cipta'],
-  ['LIKE IT', 'Bank Indonesia, OJK, Kemenkeu, dan LPS · Oktober 2025'],
+  {
+    title: 'Bootcamp Data Analyst',
+    detail: 'PT. Ebiz Karisma',
+    href: 'https://drive.google.com/file/d/1Z8NdIvFjm4_XHOUNBH57nNq2QecQALxv/view?usp=sharing',
+  },
+  {
+    title: 'Sustainability Reporting & ESG: Kompetensi Baru yang Dicari Industri Modern',
+    detail: 'Direktorat Bina Penempatan Tenaga Kerja',
+    href: 'https://drive.google.com/file/d/16LbLAsAgdqEBe5UxBTQJhK0mcS_ladsR/view?usp=sharing',
+  },
+  {
+    title: 'Uji Kemahiran Berbahasa Indonesia',
+    detail: 'Badan Bahasa',
+    href: 'https://drive.google.com/file/d/1e8UySU793i5wsm9S7kLOmt0aD36KLTmA/view?usp=drive_link',
+  },
+  {
+    title: 'E-Learning Pengantar Manajemen Keuangan Negara',
+    detail: 'Kementerian Keuangan',
+    href: 'https://drive.google.com/file/d/1IfcSEfdJxGvB_MH3TCCrchVa6zMU7nx0/view?usp=drive_link',
+  },
+  {
+    title: 'LIKE IT',
+    detail: 'Bank Indonesia, OJK, Kemenkeu, dan LPS',
+    href: 'https://drive.google.com/file/d/19tD8ME9xv9JLq2tInhVr6aK-e643Mr6Q/view?usp=drive_link',
+  },
+  {
+    title: 'TOEFL Prediction',
+    detail: 'Asterdam Course',
+    href: 'https://drive.google.com/file/d/15_-fGrEYbeYG88ONPV2aFa3kzGctkKPk/view?usp=drive_link',
+  },
+  {
+    title: 'E-Learning Pengenalan Kebijakan Publik',
+    detail: 'Kementerian Keuangan',
+    href: 'https://drive.google.com/file/d/1Wu1LF4IoyWzenDH7JaCJRCiRXD2z8Ab4/view?usp=drive_link',
+  },
+  {
+    title: 'Dasar Microsoft Excel untuk Administrasi Perkantoran',
+    detail: 'PT. Yureka Edukasi Cipta',
+    href: 'https://drive.google.com/file/d/1LyKfcYHz81yJLE3_nQOrlpB1D8LML9r6/view?usp=drive_link',
+  },
 ];
 
 function Certifications() {
   return (
     <section id="sertifikasi" className="cert-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="06 / Sertifikasi" title="Belajar, lalu mengujinya dalam praktik.">
+        <SectionHeading index="06 / Pelatihan dan Sertifikasi" title="Pelatihan dan sertifikasi yang memperkuat kesiapan kerja.">
           Pelatihan yang memperluas kemampuan kerja—dari data dan bahasa, sampai kebijakan publik dan sistem keuangan.
         </SectionHeading>
         <div className="cert-grid">
-          {certifications.map(([title, detail], index) => (
-            <article className={`cert-card reveal delay-${Math.min((index % 3) + 1, 3)}`} key={title} data-testid={`certification-${index}`}>
+          {certifications.map((certification, index) => (
+            <a
+              className={`cert-card reveal delay-${Math.min((index % 3) + 1, 3)}`}
+              href={certification.href}
+              target="_blank"
+              rel="noreferrer"
+              key={certification.title}
+              data-testid={`certification-${index}`}
+            >
               <div className="cert-icon"><Award size={17} /></div>
-              <div><h3>{title}</h3><p>{detail}</p></div>
-            </article>
+              <div><h3>{certification.title}</h3><p>{certification.detail}</p></div>
+            </a>
           ))}
         </div>
       </div>

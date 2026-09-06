@@ -1,0 +1,118 @@
+Tolong lakukan dua pembaruan penting pada file index.html portofolio saya. Lakukan dengan hati-hati agar layout tetap rapi dan fungsional.
+
+=== 1. EMBED TABLEAU INTERAKTIF UNTUK PROYEK 1 & 2 ===
+Saya ingin menampilkan dashboard Tableau secara langsung (interaktif) untuk Proyek 1 dan Proyek 2. Ganti komentar <!-- MASUKKAN KODE EMBED TABLEAU DI SINI --> pada masing-masing proyek dengan kode di bawah ini.
+PENTING: Saya sudah memodifikasi skrip JavaScript-nya agar 'vizElement.style.width' selalu '100%' dan tingginya otomatis menyesuaikan rasio layar (divElement.offsetWidth * 0.75) agar dashboard tidak terpotong atau berantakan di layar desktop maupun mobile. 
+Pastikan tag pembungkus luar (container) iframe proyek ini tidak memiliki properti overflow yang memotong konten.
+
+Kode untuk Proyek 1 (Industrial Market & Investor Opportunity Mapping):
+```html
+<div class='tableauPlaceholder' id='viz1788628665009' style='position: relative; width: 100%;'>
+    <noscript><a href='#'><img alt='Dashboard 2 ' src='[https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1_rss.png](https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1_rss.png)' style='border: none' /></a></noscript>
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+        <param name='embed_code_version' value='3' /> 
+        <param name='site_root' value='' />
+        <param name='name' value='ProjekKIM/Dashboard2' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='[https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1.png](https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1.png)' /> 
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+    </object>
+</div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1788628665009');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if ( divElement.offsetWidth > 800 ) { 
+        vizElement.style.width='100%'; 
+        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else if ( divElement.offsetWidth > 500 ) { 
+        vizElement.style.width='100%'; 
+        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else { 
+        vizElement.style.width='100%'; 
+        vizElement.style.height='1477px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = '[https://public.tableau.com/javascripts/api/viz_v1.js](https://public.tableau.com/javascripts/api/viz_v1.js)';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+Kode untuk Proyek 2 (Dashboard Kemiskinan dan Kesejahteraan Sosial):
+
+HTML
+<div class='tableauPlaceholder' id='viz1788628697806' style='position: relative; width: 100%;'>
+    <noscript><a href='#'><img alt='Dashboard Kemiskinan di Pulau Sumatra ' src='[https://public.tableau.com/static/images/Ke/KemiskinanSumatra/DashboardKemiskinandiPulauSumatra/1_rss.png](https://public.tableau.com/static/images/Ke/KemiskinanSumatra/DashboardKemiskinandiPulauSumatra/1_rss.png)' style='border: none' /></a></noscript>
+    <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+        <param name='embed_code_version' value='3' /> 
+        <param name='site_root' value='' />
+        <param name='name' value='KemiskinanSumatra/DashboardKemiskinandiPulauSumatra' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='[https://public.tableau.com/static/images/Ke/KemiskinanSumatra/DashboardKemiskinandiPulauSumatra/1.png](https://public.tableau.com/static/images/Ke/KemiskinanSumatra/DashboardKemiskinandiPulauSumatra/1.png)' /> 
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+        <param name='filter' value='publish=yes' />
+    </object>
+</div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1788628697806');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if ( divElement.offsetWidth > 800 ) { 
+        vizElement.style.width='100%'; 
+        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else if ( divElement.offsetWidth > 500 ) { 
+        vizElement.style.width='100%'; 
+        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else { 
+        vizElement.style.width='100%'; 
+        vizElement.style.height='1527px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = '[https://public.tableau.com/javascripts/api/viz_v1.js](https://public.tableau.com/javascripts/api/viz_v1.js)';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+=== 2. UPDATE SECTION SERTIFIKASI ===
+
+Ubah judul section "Sertifikasi" menjadi "Pelatihan dan Sertifikasi" (termasuk pada menu Navbar).
+
+Ubah tampilan daftar sertifikasi menjadi bentuk tautan yang dapat diklik (Gunakan tag  dengan target="_blank" dan efek hover agar warnanya berubah atau ada garis bawah).
+
+Berikut adalah daftar terbaru beserta tautannya:
+
+Bootcamp Data Analyst (PT. Ebiz Karisma)
+Link: https://drive.google.com/file/d/1Z8NdIvFjm4_XHOUNBH57nNq2QecQALxv/view?usp=sharing
+
+Sustainability Reporting & ESG: Kompetensi Baru yang Dicari Industri Modern (Direktorat Bina Penempatan Tenaga Kerja)
+Link: https://drive.google.com/file/d/16LbLAsAgdqEBe5UxBTQJhK0mcS_ladsR/view?usp=sharing
+
+Uji Kemahiran Berbahasa Indonesia (Badan Bahasa)
+Link: https://drive.google.com/file/d/1e8UySU793i5wsm9S7kLOmt0aD36KLTmA/view?usp=drive_link
+
+E-Learning Pengantar Manajemen Keuangan Negara (Kementerian Keuangan)
+Link: https://drive.google.com/file/d/1IfcSEfdJxGvB_MH3TCCrchVa6zMU7nx0/view?usp=drive_link
+
+LIKE IT (Bank Indonesia, OJK, Kemenkeu, dan LPS)
+Link: https://drive.google.com/file/d/19tD8ME9xv9JLq2tInhVr6aK-e643Mr6Q/view?usp=drive_link
+
+TOEFL Prediction (Asterdam Course)
+Link: https://drive.google.com/file/d/15_-fGrEYbeYG88ONPV2aFa3kzGctkKPk/view?usp=drive_link
+
+E-Learning Pengenalan Kebijakan Publik (Kementerian Keuangan)
+Link: https://drive.google.com/file/d/1Wu1LF4IoyWzenDH7JaCJRCiRXD2z8Ab4/view?usp=drive_link
+
+Dasar Microsoft Excel untuk Administrasi Perkantoran (PT. Yureka Edukasi Cipta)
+Link: https://drive.google.com/file/d/1LyKfcYHz81yJLE3_nQOrlpB1D8LML9r6/view?usp=drive_link
+
+***
+
+**Catatan:** Skrip Tableau di atas menggunakan pendekatan responsif. Jika di layar komputer masih terlihat sedikit pendek atau tinggi, Anda dapat menyesuaikan angka `0.75` pada baris `vizElement.style.height=(divElement.offsetWidth*0.75)+'px';` nanti di Replit. (Misalnya mengubahnya menjadi `0.60` agar lebih pendek, atau `0.85` agar lebih tinggi).
