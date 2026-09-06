@@ -22,8 +22,8 @@ import {
   X,
 } from 'lucide-react';
 import portraitImage from '@assets/Foto_Kasual_4x5_1788089653019.png';
-import supplyChainDashboardImage from '@assets/image_1788099334600.png';
-import retailDashboardImage from '@assets/image_1788099566300.png';
+import supplyChainDashboardImage from '@assets/Screenshot 2026-09-07 020837.png';
+import retailDashboardImage from '@assets/Screenshot 2026-09-07 015443.png';
 import supplyChainImage from '@assets/image_868571.png_1788097299939.png';
 import arimaForecastImage from '@assets/Rplot.png_1788097319770.png';
 import irfImage from '@assets/download_1788154953408.png';
@@ -41,9 +41,9 @@ const queryClient = new QueryClient();
 // KONFIGURASI POSISI — area utama untuk mengganti lamaran berikutnya.
 const position = {
   name: 'Frido Evindey Manihuruk',
-  role: 'Internship – Business Development Staff',
+  role: 'Business Development & Market Intelligence',
   tagline:
-    'Calon profesional yang siap membawa kemampuan analisis data, pemetaan pasar industri, dan riset ekonomi ke dalam pengembangan bisnis kawasan industri dan ekosistem tenant secara sistematis dan berbasis data.',
+    'Mengolah data, memetakan industri, dan mengidentifikasi peluang bisnis secara sistematis dan berbasis data.',
   // [GANTI: URL CV publik jika ada versi terbaru]
   cv: 'https://drive.google.com/file/d/12WnCpTzfs_IuJtOwbDi2PaQ2vI8wScFb/view?usp=drive_link',
   email: 'fridomanihuruk289@gmail.com',
@@ -76,18 +76,31 @@ function usePortfolioInteractions() {
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
       { threshold: 0.12, rootMargin: '0px 0px -45px' },
     );
-    const sectionObserver = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && setActiveSection(entry.target.id)),
-      { threshold: 0.25, rootMargin: '-78px 0px -45% 0px' },
-    );
     revealItems.forEach((item) => observer.observe(item));
-    sections.forEach((section) => sectionObserver.observe(section));
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    let frameId: number | null = null;
+    const updateActiveSection = () => {
+      const activationLine = Math.min(window.innerHeight * 0.35, 280);
+      const currentSection = sections.reduce<HTMLElement | null>((active, section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        return sectionTop <= activationLine && (!active || sectionTop > active.getBoundingClientRect().top) ? section : active;
+      }, null);
+
+      setActiveSection(currentSection?.id ?? 'beranda');
+    };
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(() => {
+          updateActiveSection();
+          frameId = null;
+        });
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => {
       observer.disconnect();
-      sectionObserver.disconnect();
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
@@ -160,7 +173,21 @@ function Hero() {
   return (
     <section id="beranda" className="hero" aria-label="Beranda">
       <div className="hero-grid">
+        <div className="hero-portrait reveal delay-2">
+          <div className="portrait-frame">
+            {/* Source: PNG without background */}
+            <img className="portrait-image" src={portraitImage} alt="Frido Evindey Manihuruk" data-testid="img-hero-portrait" />
+          </div>
+        </div>
         <div className="hero-copy-column reveal">
+          <div className="follow-me">
+            <span className="follow-me-label">Follow Me</span>
+            <div className="social-links">
+              <a href={`mailto:${position.email}`} aria-label="Email Frido" data-testid="hero-email"><Mail size={15} /></a>
+              <a href={position.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp Frido" data-testid="hero-whatsapp"><MessageCircle size={15} /></a>
+              <a href={position.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Frido" data-testid="hero-linkedin"><Linkedin size={15} /></a>
+            </div>
+          </div>
           <div className="hero-kicker mono-label">Open to opportunity / Medan, Indonesia</div>
           <h1 className="hero-title display-font">
             <em>I'M</em>
@@ -176,22 +203,6 @@ function Hero() {
           </div>
           <div className="hero-role">{position.role}</div>
           <p className="hero-copy">{position.tagline}</p>
-        </div>
-        <div className="hero-portrait reveal delay-2">
-          <div className="follow-me">
-            <span className="follow-me-label">Follow Me</span>
-            <div className="social-links">
-              <a href={`mailto:${position.email}`} aria-label="Email Frido" data-testid="hero-email"><Mail size={15} /></a>
-              <a href={position.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp Frido" data-testid="hero-whatsapp"><MessageCircle size={15} /></a>
-              <a href={position.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Frido" data-testid="hero-linkedin"><Linkedin size={15} /></a>
-            </div>
-          </div>
-          <div className="portrait-frame">
-            {/* Source: PNG without background */}
-            <img className="portrait-image" src={portraitImage} alt="Frido Evindey Manihuruk" data-testid="img-hero-portrait" />
-            <span className="hero-number">01 / 06</span>
-          </div>
-          <div className="hero-side-label"><span>DATA ANALYST &amp;</span><span>SUPPLY CHAIN</span></div>
         </div>
       </div>
       <div className="scroll-cue mono-label"><span className="scroll-line" /> Scroll to explore <ArrowDown size={13} /></div>
@@ -410,14 +421,12 @@ function TableauEmbed({
   alt,
   image,
   workbook,
-  mobileHeight,
   filter,
 }: {
   id: string;
   alt: string;
   image: string;
   workbook: string;
-  mobileHeight: number;
   filter?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -430,7 +439,7 @@ function TableauEmbed({
     const resizeViz = () => {
       const width = container.offsetWidth;
       vizElement.style.width = '100%';
-      vizElement.style.height = width > 500 ? `${width * 0.75}px` : `${mobileHeight}px`;
+      vizElement.style.height = `${width * (width <= 500 ? 0.68 : 0.58)}px`;
     };
 
     resizeViz();
@@ -446,7 +455,7 @@ function TableauEmbed({
       resizeObserver.disconnect();
       scriptElement.remove();
     };
-  }, [mobileHeight]);
+  }, []);
 
   return (
     <div
@@ -504,7 +513,6 @@ function Projects() {
                 alt="Dashboard 2"
                 image="https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1.png"
                 workbook="ProjekKIM/Dashboard2"
-                mobileHeight={1477}
               />
             </div>
           </article>
@@ -522,7 +530,6 @@ function Projects() {
                 alt="Dashboard Kemiskinan di Pulau Sumatra"
                 image="https://public.tableau.com/static/images/Ke/KemiskinanSumatra/DashboardKemiskinandiPulauSumatra/1.png"
                 workbook="KemiskinanSumatra/DashboardKemiskinandiPulauSumatra"
-                mobileHeight={1527}
                 filter="publish=yes"
               />
             </div>
@@ -839,7 +846,6 @@ function Contact() {
           <div className="reveal">
             <div className="hero-kicker mono-label">08 / Kontak</div>
             <h2 className="contact-title display-font">Mari membangun keputusan yang <em>lebih baik.</em></h2>
-            <p className="contact-copy">Tertarik berdiskusi tentang supply chain, analisis ekonomi, atau peluang kolaborasi? Saya siap terhubung.</p>
             <div className="contact-actions">
               <a className="button-primary" href={`mailto:${position.email}`} data-testid="contact-send-email">Kirim Email <Mail size={15} /></a>
               <a className="button-outline" href={position.whatsapp} target="_blank" rel="noreferrer" data-testid="contact-whatsapp">Hubungi via WhatsApp <MessageCircle size={15} /></a>
