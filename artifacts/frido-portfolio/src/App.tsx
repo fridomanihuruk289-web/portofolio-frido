@@ -41,9 +41,9 @@ const queryClient = new QueryClient();
 // KONFIGURASI POSISI — area utama untuk mengganti lamaran berikutnya.
 const position = {
   name: 'Frido Evindey Manihuruk',
-  role: 'Business Development & Market Intelligence',
+  role: 'Data Analysis & Public Budgeting',
   tagline:
-    'Mengolah data, memetakan industri, dan mengidentifikasi peluang bisnis secara sistematis dan berbasis data.',
+    'Mengolah dan menganalisis data untuk mendukung monitoring, evaluasi, dan pengambilan keputusan berbasis data.',
   // [GANTI: URL CV publik jika ada versi terbaru]
   cv: 'https://drive.google.com/file/d/12WnCpTzfs_IuJtOwbDi2PaQ2vI8wScFb/view?usp=drive_link',
   email: 'fridomanihuruk289@gmail.com',
@@ -214,12 +214,12 @@ function About() {
   return (
     <section id="tentang" className="light-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="02 / Tentang" title="Ekonomi bertemu keputusan operasional.">
-          Sarjana Ilmu Ekonomi yang nyaman membaca angka, menyusun konteks, dan menerjemahkan temuan menjadi langkah yang dapat dijalankan.
+        <SectionHeading index="02 / Tentang" title="Ekonomi bertemu analisis kebijakan.">
+          Lulusan Ilmu Ekonomi dengan pengalaman mengolah data, melakukan riset kuantitatif, dan menyusun informasi secara sistematis untuk mendukung analisis dan pengambilan keputusan.
         </SectionHeading>
         <div className="about-grid">
           <p className="profile-summary reveal">
-            Sarjana Ekonomi Universitas Negeri Medan (IPK 3,71) dengan pengalaman solid dalam analisis data, riset ekonomi, dan koordinasi stakeholder. Memiliki rekam jejak magang di BAPPERIDA Sumatera Utara dalam pengolahan data regional, serta pengalaman memimpin 40-50 anggota dalam organisasi mahasiswa. Didukung oleh 20+ publikasi ilmiah dan keahlian teknis (Tableau, Excel, EViews, SmartPLS), saya memiliki minat kuat pada business development, market mapping, dan pengembangan kawasan industri.
+            Sarjana Ekonomi Universitas Negeri Medan (IPK 3,71) dengan pengalaman dalam analisis data, riset ekonomi, dan koordinasi stakeholder. Memiliki pengalaman magang di BAPPERIDA Sumatera Utara dalam pengolahan dan validasi data ekonomi regional serta dukungan penelitian. Didukung 20+ publikasi ilmiah dan kemampuan Microsoft Excel, Tableau, Python, SQL, serta analisis kuantitatif, saya memiliki minat kuat pada evaluasi kinerja, analisis kebijakan, dan pengambilan keputusan berbasis data.
           </p>
           <div className="stat-grid reveal delay-1">
             {[
@@ -254,9 +254,9 @@ function About() {
 const workExperience = [
   {
     date: 'JAN — FEB 2025',
-    title: 'Analis Ekonomi Regional',
+    title: 'Staff Administrasi Bidang PSDA',
     org: 'BAPPERIDA Sumatera Utara · Bidang PSDA',
-    text: 'Menganalisis indikator ekonomi regional, menyunting laporan KEK Sei Mangkei, terlibat riset dampak sektor jasa keuangan terhadap komoditas unggulan Sumatera Utara, serta verifikasi laporan kinerja ASN via sistem e-Kinerja.',
+    text: 'Mengolah dan memvalidasi data indikator ekonomi regional, menyunting laporan KEK Sei Mangkei, berkontribusi dalam penelitian sektor jasa keuangan dan komoditas unggulan, serta mendukung administrasi, rapat lintas instansi, dan verifikasi e-Kinerja.',
   },
   {
     date: 'SEP 2025 — JAN 2026',
@@ -496,23 +496,28 @@ function Projects() {
   return (
     <section id="proyek" className="projects-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="04 / Proyek & Riset" title="Dari data transaksi sampai guncangan global.">
-          Lima studi yang menunjukkan rentang berpikir: memetakan peluang kawasan industri, membaca kesejahteraan regional, mengubah data mentah menjadi visibilitas, membuat keputusan persediaan lebih terukur, lalu menguji cerita ekonomi dengan metode yang ketat.
+        <SectionHeading index="04 / Proyek & Riset" title="Dari data menuju evaluasi kinerja.">
+          Proyek analisis yang menunjukkan kemampuan mengolah data, mengevaluasi kinerja, mengidentifikasi exception, dan menerjemahkan temuan menjadi insight yang terstruktur.
         </SectionHeading>
         <div className="project-stack">
           <article className="project-card new-project-card reveal">
             <div className="project-content">
-              <div className="project-number mono-label">Project 01 / Business development</div>
-              <h3>Industrial Market, Tenant &amp; Investor Opportunity Mapping</h3>
-              <p>Menganalisis 100 entitas sintetis dari 10 sektor industri untuk memetakan profil industri, tenant, dan calon investor kawasan industri. Mengolah indikator investasi, kebutuhan lahan, pertumbuhan, dan sinergi ekosistem.</p>
+              <div className="project-number mono-label">Project 01 / Government budgeting</div>
+              <h3>Government Budget Performance Monitoring &amp; Evaluation</h3>
+              <p>Mensimulasikan analisis kinerja anggaran menggunakan 180 Rincian Output (RO) dari 5 K/L fiktif dan 20 program. Menganalisis pagu, realisasi, capaian output, deviasi RPD, serta mengidentifikasi exception untuk mendukung evaluasi kinerja anggaran.</p>
               <div className="tag-list">
-                {['Business Development', 'Market Intelligence', 'Opportunity Scoring', 'Tableau Dashboard'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+                {['Budget Performance Analysis', 'Monitoring & Evaluation', 'Excel Analysis', 'Exception Analysis'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+              </div>
+              <div className="project-note">
+                <strong>Analytical Framework</strong>
+                <span>Budget → Realization → Output Achievement → Planning Deviation → Exception Identification</span>
               </div>
               <TableauEmbed
-                id="viz1788628665009"
-                alt="Dashboard 2"
-                image="https://public.tableau.com/static/images/Pr/ProjekKIM/Dashboard2/1.png"
-                workbook="ProjekKIM/Dashboard2"
+                id="viz1788885473331"
+                alt="Government Budget Performance Monitoring and Evaluation Dashboard"
+                image="https://public.tableau.com/static/images/Pr/ProyekSimulasiAnalisisKinerjaAnggaran/Dashboard1/1.png"
+                workbook="ProyekSimulasiAnalisisKinerjaAnggaran/Dashboard1"
+                filter="publish=yes"
               />
             </div>
           </article>
@@ -521,7 +526,7 @@ function Projects() {
             <div className="project-content">
               <div className="project-number mono-label">Project 02 / Regional analysis</div>
               <h3>Dashboard Kemiskinan dan Kesejahteraan Sosial Pulau Sumatra 2010–2025</h3>
-              <p>Membangun dashboard berbasis data seluruh kabupaten/kota di Pulau Sumatra untuk menganalisis disparitas kemiskinan dengan mengintegrasikan indikator IPM, UHH, RLS, dan pengeluaran per kapita.</p>
+              <p>Menganalisis seluruh kabupaten/kota di Pulau Sumatra periode 2010–2025 untuk melihat perkembangan dan disparitas kemiskinan. Mengintegrasikan persentase kemiskinan, IPM, UHH, RLS, dan rata-rata pengeluaran per kapita melalui dashboard interaktif.</p>
               <div className="tag-list">
                 {['Regional Economic Analysis', 'Data Integration', 'Interactive Mapping'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
@@ -620,17 +625,17 @@ function Projects() {
 }
 
 const skillGroups = [
-  { icon: <LineChart size={18} />, title: 'Business & Analysis', skills: ['Analisis Data', 'Market & Industry Analysis', 'Economic Analysis', 'Analytical Thinking & Problem Solving', 'Business Development'] },
-  { icon: <Users size={18} />, title: 'Professional', skills: ['Leadership', 'Communication', 'Teamwork', 'Stakeholder Coordination', 'Project Coordination'] },
-  { icon: <Code2 size={18} />, title: 'Tools', skills: ['Microsoft Excel', 'Tableau', 'EViews', 'SmartPLS', 'Canva'] },
+  { icon: <LineChart size={18} />, title: 'Analysis & Research', skills: ['Data Analysis', 'Economic Analysis', 'Quantitative Research', 'Critical Thinking', 'Problem Solving'] },
+  { icon: <Users size={18} />, title: 'Professional', skills: ['Communication', 'Teamwork', 'Stakeholder Coordination', 'Project Coordination', 'Technical Writing'] },
+  { icon: <Code2 size={18} />, title: 'Tools', skills: ['Microsoft Excel', 'Tableau', 'Python', 'SQL', 'EViews', 'RStudio'] },
 ];
 
 function Skills() {
   return (
     <section className="light-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="05 / Keterampilan" title="Alat yang dipakai untuk membuat hal rumit terbaca.">
-          Fondasi analitis, kemampuan bekerja bersama, serta toolset teknis untuk bergerak dari pertanyaan ke keputusan.
+        <SectionHeading index="05 / Keterampilan" title="Dari data menuju insight yang terstruktur.">
+          Kemampuan analitis, riset, pengolahan data, dan koordinasi untuk mendukung penyusunan informasi serta pengambilan keputusan berbasis data.
         </SectionHeading>
         <div className="skills-grid">
           {skillGroups.map((group, index) => (
