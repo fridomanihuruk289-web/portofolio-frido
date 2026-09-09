@@ -41,11 +41,11 @@ const queryClient = new QueryClient();
 // KONFIGURASI POSISI — area utama untuk mengganti lamaran berikutnya.
 const position = {
   name: 'Frido Evindey Manihuruk',
-  role: 'Data Analysis & Public Budgeting',
+  role: 'Data Analysis & Budget Planning',
   tagline:
-    'Mengolah dan menganalisis data untuk mendukung monitoring, evaluasi, dan pengambilan keputusan berbasis data.',
+    'Mengolah dan menganalisis data untuk mendukung perencanaan penganggaran, penyusunan kajian, dan pengambilan keputusan berbasis data.',
   // [GANTI: URL CV publik jika ada versi terbaru]
-  cv: 'https://drive.google.com/file/d/12WnCpTzfs_IuJtOwbDi2PaQ2vI8wScFb/view?usp=drive_link',
+  cv: 'https://drive.google.com/file/d/1wtwRjuNqA6ERhjqY03gYguTB2iXw1j4s/view?usp=sharing',
   email: 'fridomanihuruk289@gmail.com',
   whatsapp: 'https://wa.me/6283163258425',
   // [GANTI: URL LinkedIn jika diperlukan]
@@ -214,12 +214,12 @@ function About() {
   return (
     <section id="tentang" className="light-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="02 / Tentang" title="Ekonomi bertemu analisis kebijakan.">
+        <SectionHeading index="02 / Tentang" title="Ekonomi bertemu perencanaan dan analisis.">
           Lulusan Ilmu Ekonomi dengan pengalaman mengolah data, melakukan riset kuantitatif, dan menyusun informasi secara sistematis untuk mendukung analisis dan pengambilan keputusan.
         </SectionHeading>
         <div className="about-grid">
           <p className="profile-summary reveal">
-            Sarjana Ekonomi Universitas Negeri Medan (IPK 3,71) dengan pengalaman dalam analisis data, riset ekonomi, dan koordinasi stakeholder. Memiliki pengalaman magang di BAPPERIDA Sumatera Utara dalam pengolahan dan validasi data ekonomi regional serta dukungan penelitian. Didukung 20+ publikasi ilmiah dan kemampuan Microsoft Excel, Tableau, Python, SQL, serta analisis kuantitatif, saya memiliki minat kuat pada evaluasi kinerja, analisis kebijakan, dan pengambilan keputusan berbasis data.
+            Sarjana Ekonomi Universitas Negeri Medan (IPK 3,71) dengan pengalaman dalam analisis data, riset ekonomi, dan koordinasi stakeholder. Memiliki pengalaman magang di BAPPERIDA Sumatera Utara dalam pengolahan dan validasi data ekonomi regional serta dukungan penelitian. Didukung 20+ publikasi ilmiah dan kemampuan Microsoft Excel, Tableau, EViews, dan analisis kuantitatif. Memiliki minat untuk mengembangkan kompetensi dalam pengolahan, analisis, dan interpretasi data, serta perencanaan penganggaran dan analisis alokasi anggaran untuk mendukung penyusunan bahan dan pengambilan keputusan berbasis data.
           </p>
           <div className="stat-grid reveal delay-1">
             {[
@@ -496,25 +496,21 @@ function Projects() {
   return (
     <section id="proyek" className="projects-section section-pad">
       <div className="section-wrap">
-        <SectionHeading index="04 / Proyek & Riset" title="Dari data menuju evaluasi kinerja.">
-          Proyek analisis yang menunjukkan kemampuan mengolah data, mengevaluasi kinerja, mengidentifikasi exception, dan menerjemahkan temuan menjadi insight yang terstruktur.
+        <SectionHeading index="04 / Proyek & Riset" title="Dari data menuju kajian penganggaran.">
+          Proyek analisis yang menunjukkan kemampuan mengolah data, menelaah alokasi anggaran, mengidentifikasi gap, dan menerjemahkan temuan menjadi insight yang terstruktur.
         </SectionHeading>
         <div className="project-stack">
           <article className="project-card new-project-card reveal">
             <div className="project-content">
-              <div className="project-number mono-label">Project 01 / Government budgeting</div>
-              <h3>Government Budget Performance Monitoring &amp; Evaluation</h3>
-              <p>Mensimulasikan analisis kinerja anggaran menggunakan 180 Rincian Output (RO) dari 5 K/L fiktif dan 20 program. Menganalisis pagu, realisasi, capaian output, deviasi RPD, serta mengidentifikasi exception untuk mendukung evaluasi kinerja anggaran.</p>
+              <div className="project-number mono-label">Project 01 / Budget planning &amp; analysis</div>
+              <h3>Government Budget Planning &amp; Allocation Analysis</h3>
+              <p>Mensimulasikan analisis kinerja anggaran menggunakan 180 Rincian Output (RO) dari 5 K/L fiktif dan 20 program. Menganalisis pagu, target output, RPD, realisasi, dan capaian output untuk menelaah keselarasan alokasi dengan target serta mengidentifikasi area yang memerlukan kajian lebih lanjut.</p>
               <div className="tag-list">
-                {['Budget Performance Analysis', 'Monitoring & Evaluation', 'Excel Analysis', 'Exception Analysis'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
-              </div>
-              <div className="project-note">
-                <strong>Analytical Framework</strong>
-                <span>Budget → Realization → Output Achievement → Planning Deviation → Exception Identification</span>
+                {['Budget Planning Analysis', 'Budget Allocation', 'Excel Analysis', 'Analytical Review'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
               </div>
               <TableauEmbed
                 id="viz1788885473331"
-                alt="Government Budget Performance Monitoring and Evaluation Dashboard"
+                alt="Government Budget Planning and Allocation Analysis Dashboard"
                 image="https://public.tableau.com/static/images/Pr/ProyekSimulasiAnalisisKinerjaAnggaran/Dashboard1/1.png"
                 workbook="ProyekSimulasiAnalisisKinerjaAnggaran/Dashboard1"
                 filter="publish=yes"
@@ -627,7 +623,7 @@ function Projects() {
 const skillGroups = [
   { icon: <LineChart size={18} />, title: 'Analysis & Research', skills: ['Data Analysis', 'Economic Analysis', 'Quantitative Research', 'Critical Thinking', 'Problem Solving'] },
   { icon: <Users size={18} />, title: 'Professional', skills: ['Communication', 'Teamwork', 'Stakeholder Coordination', 'Project Coordination', 'Technical Writing'] },
-  { icon: <Code2 size={18} />, title: 'Tools', skills: ['Microsoft Excel', 'Tableau', 'Python', 'SQL', 'EViews', 'RStudio'] },
+  { icon: <Code2 size={18} />, title: 'Tools & Data', skills: ['Microsoft Excel', 'Tableau', 'Google Workspace', 'EViews', 'RStudio'] },
 ];
 
 function Skills() {
